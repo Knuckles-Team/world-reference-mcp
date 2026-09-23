@@ -1,0 +1,18 @@
+{
+  "offset": 0,
+  "limit": 1,
+  "count": 2033594,
+  "results": [
+    {
+      "key": 5936472487,
+      "taxonKey": 5219243,
+      "scientificName": "Vulpes vulpes (Linnaeus, 1758)",
+      "decimalLatitude": 60.319882,
+      "decimalLongitude": 22.222179,
+      "eventDate": "2026-01-01T09:43/2026-01-01T15:18",
+      "country": "Finland",
+      "countryCode": "FI",
+      "lastParsed": "2026-09-14T12:01:38.393+00:00"
+    }
+  ]
+}

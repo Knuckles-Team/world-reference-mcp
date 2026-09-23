@@ -1,0 +1,29 @@
+{
+  "_comment": "Recorded live from https://query.wikidata.org/sparql with the connector's real three-variable query shape (?item ?itemLabel ?externalId) for wdt:P685 (NCBI taxon id), scoped to Q8332 (red fox) for a small fixture.",
+  "head": {
+    "vars": [
+      "item",
+      "itemLabel",
+      "externalId"
+    ]
+  },
+  "results": {
+    "bindings": [
+      {
+        "item": {
+          "type": "uri",
+          "value": "http://www.wikidata.org/entity/Q8332"
+        },
+        "itemLabel": {
+          "xml:lang": "en",
+          "type": "literal",
+          "value": "red fox"
+        },
+        "externalId": {
+          "type": "literal",
+          "value": "9627"
+        }
+      }
+    ]
+  }
+}

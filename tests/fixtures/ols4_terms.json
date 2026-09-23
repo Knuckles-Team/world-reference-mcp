@@ -1,0 +1,28 @@
+{
+  "_embedded": {
+    "terms": [
+      {
+        "iri": "http://purl.obolibrary.org/obo/BFO_0000002",
+        "obo_id": "BFO:0000002",
+        "short_form": "BFO_0000002",
+        "label": "continuant",
+        "ontology_prefix": "GO",
+        "is_obsolete": false
+      },
+      {
+        "iri": "http://purl.obolibrary.org/obo/BFO_0000003",
+        "obo_id": "BFO:0000003",
+        "short_form": "BFO_0000003",
+        "label": "occurrent",
+        "ontology_prefix": "GO",
+        "is_obsolete": false
+      }
+    ]
+  },
+  "page": {
+    "size": 2,
+    "totalElements": 85169,
+    "totalPages": 42585,
+    "number": 0
+  }
+}

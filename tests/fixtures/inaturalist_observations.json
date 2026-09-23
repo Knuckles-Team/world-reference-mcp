@@ -1,0 +1,21 @@
+{
+  "total_results": 171070,
+  "page": 1,
+  "per_page": 2,
+  "results": [
+    {
+      "id": 402657065,
+      "uuid": "747788ac-479a-412f-90d6-203439437502",
+      "quality_grade": "needs_id",
+      "observed_on": "2026-09-20",
+      "time_observed_at": "2026-09-20T20:04:00+10:00",
+      "location": "-38.1860615796,145.551744825",
+      "place_guess": "Bayles VIC 3981, Australia",
+      "taxon": {
+        "id": 42069,
+        "name": "Vulpes vulpes",
+        "rank": "species"
+      }
+    }
+  ]
+}

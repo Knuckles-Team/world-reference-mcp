@@ -1,0 +1,45 @@
+{
+  "_comment": "Synthetic, shaped from the documented USDA FoodData Central /foods/search response (https://fdc.nal.usda.gov/api-guide) since this connector has no API key to record a live call with.",
+  "totalHits": 2,
+  "currentPage": 1,
+  "totalPages": 1,
+  "foods": [
+    {
+      "fdcId": 1750340,
+      "description": "Apples, raw, with skin",
+      "dataType": "Foundation",
+      "publicationDate": "2019-04-01",
+      "foodNutrients": [
+        {
+          "nutrientId": 1008,
+          "nutrientName": "Energy",
+          "nutrientNumber": "208",
+          "unitName": "KCAL",
+          "value": 52.0
+        },
+        {
+          "nutrientId": 1003,
+          "nutrientName": "Protein",
+          "nutrientNumber": "203",
+          "unitName": "G",
+          "value": 0.26
+        }
+      ]
+    },
+    {
+      "fdcId": 1750341,
+      "description": "Bananas, raw",
+      "dataType": "Foundation",
+      "publicationDate": "2019-04-01",
+      "foodNutrients": [
+        {
+          "nutrientId": 1008,
+          "nutrientName": "Energy",
+          "nutrientNumber": "208",
+          "unitName": "KCAL",
+          "value": 89.0
+        }
+      ]
+    }
+  ]
+}

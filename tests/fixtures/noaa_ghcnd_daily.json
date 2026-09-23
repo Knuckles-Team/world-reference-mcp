@@ -1,0 +1,20 @@
+{
+  "_comment": "Synthetic, shaped from the documented NOAA CDO v2 /data GHCND response (https://www.ncdc.noaa.gov/cdo-web/webservices/v2#data) since this connector has no token to record a live call with.",
+  "metadata": {"resultset": {"offset": 1, "count": 2, "limit": 200}},
+  "results": [
+    {
+      "date": "2026-01-01T00:00:00",
+      "datatype": "TMAX",
+      "station": "GHCND:USW00023174",
+      "attributes": ",,W,2400",
+      "value": 18.3
+    },
+    {
+      "date": "2026-01-01T00:00:00",
+      "datatype": "TMIN",
+      "station": "GHCND:USW00023174",
+      "attributes": ",,W,2400",
+      "value": 9.7
+    }
+  ]
+}

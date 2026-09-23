@@ -1,0 +1,19 @@
+{
+  "_comment": "Synthetic, shaped from the documented Open-Meteo historical-archive response (https://open-meteo.com/en/docs/historical-weather-api); the keyless /v1/forecast probe this connector recorded live returns the same daily-array envelope, just for future dates.",
+  "latitude": 52.52,
+  "longitude": 13.419998,
+  "daily_units": {
+    "time": "iso8601",
+    "temperature_2m_max": "°C",
+    "temperature_2m_min": "°C",
+    "precipitation_sum": "mm",
+    "wind_speed_10m_max": "km/h"
+  },
+  "daily": {
+    "time": ["2026-01-01", "2026-01-02", "2026-01-03"],
+    "temperature_2m_max": [3.1, 2.4, 1.8],
+    "temperature_2m_min": [-1.2, -2.0, -3.1],
+    "precipitation_sum": [0.0, 1.2, 0.4],
+    "wind_speed_10m_max": [14.3, 18.9, 11.2]
+  }
+}

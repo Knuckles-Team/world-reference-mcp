@@ -1,0 +1,25 @@
+{
+  "offset": 0,
+  "limit": 2,
+  "count": 466,
+  "results": [
+    {
+      "key": 304190692,
+      "scientificName": "Vulpes vulpes",
+      "canonicalName": "Vulpes vulpes",
+      "rank": "SPECIES",
+      "parentKey": 336414948,
+      "kingdom": "Animalia",
+      "taxonomicStatus": "ACCEPTED"
+    },
+    {
+      "key": 162653742,
+      "scientificName": "Vulpes vulpes",
+      "canonicalName": "Vulpes vulpes",
+      "rank": "SPECIES",
+      "parentKey": 162653740,
+      "kingdom": "Animalia",
+      "taxonomicStatus": "ACCEPTED"
+    }
+  ]
+}
