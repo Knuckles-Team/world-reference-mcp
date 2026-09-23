@@ -1,0 +1,25 @@
+name: pipeline
+
+# pipelines is always referenced at `main` (operator rule 2026-09-22) —
+# never SHA-pin Knuckles-Team/pipelines.
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  gates:
+    name: gates
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run pre-commit (Knuckles-Team/pipelines@main + local hooks)
+        uses: pre-commit/action@v3.0.1
