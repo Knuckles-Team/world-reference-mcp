@@ -1,0 +1,36 @@
+{
+  "api_version": "graphos.io/v1",
+  "artifacts": {
+    "connector_manifest.yml": "9677182f7441c9af1a89618d4df2afc4075eaf1eef233d91b7bd517c98c3f126",
+    "world_reference_mcp/connectors/mcp_source_presets.json": "8bda3239bc749241467d9986d7cd684c3af55e297c312b4cb6dee1c176762fd8",
+    "world_reference_mcp/connectors/tool_schema_fingerprints.json": "c4701082264f0b47f47322ad2fe20137b1832f95a0ec09e7aa19dea13bacf82d",
+    "world_reference_mcp/ontology/fixtures/records.json": "3b7253452b8991f268716eb6e0e161089ef1bcb79dd283c0cff5ec905fc82da6",
+    "world_reference_mcp/ontology/mappings/source.yaml": "d7361816d2bbac3bbd7bc2ebbcab6985b30afa6d61b67d3e12d051319268b5a0",
+    "world_reference_mcp/ontology/migrations/manifest.json": "d0de575ae95abdf603f03178e734527e0d82cbd48b6d0a92ad1dca9b56d49efa",
+    "world_reference_mcp/ontology/shapes/connector.shacl.ttl": "43c771c9d149afe3505abdd6d7e4e426194d8c20371bf965c15fedd5b0b07bbc",
+    "world_reference_mcp/ontology/world_reference.ttl": "b7cf00013b85e597b8dff8a53eb1b421165240d8cff83b163c413fb85c7c923d"
+  },
+  "checks": {
+    "declared_tool_schema": "passed",
+    "manifest_integrity": "passed",
+    "privacy_contract": "passed",
+    "shacl_parse": "passed",
+    "synthetic_fixture_contract": "passed"
+  },
+  "compatibility": {
+    "agent_utilities": ">=2.5.0,<3",
+    "bundle_schema": "2",
+    "epistemic_graph": ">=2.27.0,<3"
+  },
+  "connector": "world-reference-mcp",
+  "kind": "ConnectorSourceAttestation",
+  "live_certified": false,
+  "mode": "offline-source",
+  "schema_version": "2",
+  "signature": null,
+  "signature_algorithm": "none",
+  "signer": "UNSIGNED-PREVIEW",
+  "signing_public_key": "",
+  "status": "source-validated",
+  "validated_at": "2026-09-23T03:05:00Z"
+}

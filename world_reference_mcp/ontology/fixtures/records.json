@@ -1,0 +1,226 @@
+{
+  "connector": "world-reference-mcp",
+  "fixtures": [
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "food_fdc",
+      "record": {
+        "acl_public": false,
+        "description": "Synthetic certification record",
+        "fdc_id": "fixture-record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "organism_observation_gbif",
+      "record": {
+        "acl_public": false,
+        "last_parsed": "2000-01-01T00:00:00Z",
+        "occurrence_id": "fixture-record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "organism_observation_inaturalist",
+      "record": {
+        "acl_public": false,
+        "observation_id": "fixture-record",
+        "time_observed_at": "2000-01-01T00:00:00Z"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "reference_term_chebi",
+      "record": {
+        "acl_public": false,
+        "iri": "fixture-record",
+        "label": "Synthetic certification record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "reference_term_envo",
+      "record": {
+        "acl_public": false,
+        "iri": "fixture-record",
+        "label": "Synthetic certification record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "reference_term_foodon",
+      "record": {
+        "acl_public": false,
+        "iri": "fixture-record",
+        "label": "Synthetic certification record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "reference_term_go",
+      "record": {
+        "acl_public": false,
+        "iri": "fixture-record",
+        "label": "Synthetic certification record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "reference_term_pato",
+      "record": {
+        "acl_public": false,
+        "iri": "fixture-record",
+        "label": "Synthetic certification record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "reference_term_uberon",
+      "record": {
+        "acl_public": false,
+        "iri": "fixture-record",
+        "label": "Synthetic certification record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "taxon_gbif",
+      "record": {
+        "acl_public": false,
+        "gbif_taxon_key": "fixture-record",
+        "scientific_name": "Synthetic certification record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "taxon_ncbi",
+      "record": {
+        "acl_public": false,
+        "modification_date": "2000-01-01T00:00:00Z",
+        "ncbi_taxon_id": "fixture-record",
+        "scientific_name": "Synthetic certification record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "weather_observation_noaa",
+      "record": {
+        "acl_public": false,
+        "observation_id": "fixture-record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "weather_observation_open_meteo",
+      "record": {
+        "acl_public": false,
+        "observation_date": "fixture-record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "wikidata_alignment_chemical_entity",
+      "record": {
+        "acl_public": false,
+        "label": "Synthetic certification record",
+        "wikidata_id": "fixture-record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "wikidata_alignment_country",
+      "record": {
+        "acl_public": false,
+        "label": "Synthetic certification record",
+        "wikidata_id": "fixture-record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "wikidata_alignment_taxon_gbif",
+      "record": {
+        "acl_public": false,
+        "label": "Synthetic certification record",
+        "wikidata_id": "fixture-record"
+      }
+    },
+    {
+      "expected": {
+        "acl_state": "quarantine",
+        "id": "fixture-record",
+        "title": "Synthetic certification record"
+      },
+      "preset": "wikidata_alignment_taxon_ncbi",
+      "record": {
+        "acl_public": false,
+        "label": "Synthetic certification record",
+        "wikidata_id": "fixture-record"
+      }
+    }
+  ],
+  "schema_version": "1"
+}

@@ -1,0 +1,42 @@
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix : <http://knuckles.team/kg#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# world-reference-mcp ontology — this connector's OWN admin/lifecycle record.
+# It does NOT redeclare the world-model domain classes (Taxon, ReferenceTerm,
+# Food, FoodCompositionRecord, NutrientAmount, OrganismObservation,
+# WeatherObservation, Region, Country, ...) — those are owned by
+# epistemic-graph's core `life`/`environment`/`nutrition` modules
+# (crates/eg-core/ontology/{life,environment,nutrition}-v1.ttl) on EG branch
+# `feat/world-model-ontology`. This connector maps each of its 17 declared
+# streams onto one of those existing classes through
+# `connectors/mcp_source_presets.json`'s `ontology_class` hint, resolved at
+# runtime by `world_reference_mcp.connectors.adapters.build_schema_mappings`
+# — never by duplicating the class here. See AGENTS.md "Ontology mapping".
+
+# --- classes (owl:Class) ---
+
+:ReferenceSyncRun a owl:Class ;
+    rdfs:label "Reference Sync Run" ;
+    rdfs:comment "One bounded sweep of one world-reference-mcp stream (taxonomy, reference terms, nutrition, observations, or Wikidata alignment): a durable record of the ask and its checkpoint, not the ingested data itself." .
+
+# --- links (owl:ObjectProperty) ---
+
+:syncsStream a owl:ObjectProperty ;
+    rdfs:label "syncs stream" ;
+    rdfs:comment "Links a ReferenceSyncRun to the world_source_ingestion stream name it swept (e.g. taxon_ncbi, reference_term_go, food_fdc)." ;
+    rdfs:domain :ReferenceSyncRun ;
+    rdfs:range xsd:string .
+
+<http://knuckles.team/kg/world-reference-mcp> a owl:Ontology ;
+    rdfs:label "World Reference Connector Ontology" ;
+    rdfs:comment """world-reference-mcp's own sync-lifecycle bookkeeping,
+    federated into the agent-utilities knowledge-graph hub. The world-model
+    domain classes each stream lands on are epistemic-graph-owned; this
+    ontology models only this connector's own admin state, not a second copy
+    of that domain.""" ;
+    owl:imports <http://knuckles.team/kg> .

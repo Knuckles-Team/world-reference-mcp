@@ -1,0 +1,6 @@
+{
+  "connector": "world-reference-mcp",
+  "current_ontology_source": "world-reference-mcp",
+  "migrations": [],
+  "schema_version": "1"
+}

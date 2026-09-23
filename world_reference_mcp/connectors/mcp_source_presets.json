@@ -1,0 +1,312 @@
+{
+  "_comment": "Declarative agent-connector-sdk mcp_tool presets (RF-ADR-009 2.2.1). 'server' is a placeholder the fleet registry derives at manifest-generation time; do not hand-edit connector_manifest.yml from this file directly.",
+  "taxon_ncbi": {
+    "server": "world-reference-mcp",
+    "tool": "taxonomy_ncbi_search",
+    "records_path": "items",
+    "id_field": "ncbi_taxon_id",
+    "title_field": "scientific_name",
+    "updated_field": "modification_date",
+    "updated_since_param": "modified_since",
+    "doc_type": "taxon",
+    "pagination": "offset",
+    "page_param": "retstart",
+    "page_size_param": "retmax",
+    "page_size": 50,
+    "arguments": {
+      "term": "Mammalia[Subtree]"
+    },
+    "ontology_class": "Taxon",
+    "params_style": "args"
+  },
+  "taxon_gbif": {
+    "server": "world-reference-mcp",
+    "tool": "taxonomy_gbif_search",
+    "records_path": "items",
+    "id_field": "gbif_taxon_key",
+    "title_field": "scientific_name",
+    "doc_type": "taxon",
+    "pagination": "offset",
+    "page_param": "offset",
+    "page_size_param": "limit",
+    "page_size": 100,
+    "arguments": {
+      "query": "Mammalia",
+      "rank": "SPECIES"
+    },
+    "ontology_class": "Taxon",
+    "params_style": "args"
+  },
+  "reference_term_go": {
+    "server": "world-reference-mcp",
+    "tool": "reference_term_list",
+    "records_path": "items",
+    "id_field": "iri",
+    "title_field": "label",
+    "doc_type": "reference_term",
+    "pagination": "page",
+    "page_param": "page",
+    "page_size_param": "size",
+    "page_size": 100,
+    "start_page": 0,
+    "page_kind": "number",
+    "arguments": {
+      "ontology": "go"
+    },
+    "ontology_class": "BiologicalProcessTerm",
+    "params_style": "args"
+  },
+  "reference_term_uberon": {
+    "server": "world-reference-mcp",
+    "tool": "reference_term_list",
+    "records_path": "items",
+    "id_field": "iri",
+    "title_field": "label",
+    "doc_type": "reference_term",
+    "pagination": "page",
+    "page_param": "page",
+    "page_size_param": "size",
+    "page_size": 100,
+    "start_page": 0,
+    "page_kind": "number",
+    "arguments": {
+      "ontology": "uberon"
+    },
+    "ontology_class": "AnatomyTerm",
+    "params_style": "args"
+  },
+  "reference_term_envo": {
+    "server": "world-reference-mcp",
+    "tool": "reference_term_list",
+    "records_path": "items",
+    "id_field": "iri",
+    "title_field": "label",
+    "doc_type": "reference_term",
+    "pagination": "page",
+    "page_param": "page",
+    "page_size_param": "size",
+    "page_size": 100,
+    "start_page": 0,
+    "page_kind": "number",
+    "arguments": {
+      "ontology": "envo"
+    },
+    "ontology_class": "EnvironmentTerm",
+    "params_style": "args"
+  },
+  "reference_term_pato": {
+    "server": "world-reference-mcp",
+    "tool": "reference_term_list",
+    "records_path": "items",
+    "id_field": "iri",
+    "title_field": "label",
+    "doc_type": "reference_term",
+    "pagination": "page",
+    "page_param": "page",
+    "page_size_param": "size",
+    "page_size": 100,
+    "start_page": 0,
+    "page_kind": "number",
+    "arguments": {
+      "ontology": "pato"
+    },
+    "ontology_class": "QualityTerm",
+    "params_style": "args"
+  },
+  "reference_term_chebi": {
+    "server": "world-reference-mcp",
+    "tool": "reference_term_list",
+    "records_path": "items",
+    "id_field": "iri",
+    "title_field": "label",
+    "doc_type": "reference_term",
+    "pagination": "page",
+    "page_param": "page",
+    "page_size_param": "size",
+    "page_size": 100,
+    "start_page": 0,
+    "page_kind": "number",
+    "arguments": {
+      "ontology": "chebi"
+    },
+    "ontology_class": "ChemicalEntityTerm",
+    "params_style": "args"
+  },
+  "reference_term_foodon": {
+    "server": "world-reference-mcp",
+    "tool": "reference_term_list",
+    "records_path": "items",
+    "id_field": "iri",
+    "title_field": "label",
+    "doc_type": "reference_term",
+    "pagination": "page",
+    "page_param": "page",
+    "page_size_param": "size",
+    "page_size": 100,
+    "start_page": 0,
+    "page_kind": "number",
+    "arguments": {
+      "ontology": "foodon"
+    },
+    "ontology_class": "FoodTerm",
+    "params_style": "args"
+  },
+  "food_fdc": {
+    "server": "world-reference-mcp",
+    "tool": "fdc_food_search",
+    "records_path": "items",
+    "id_field": "fdc_id",
+    "title_field": "description",
+    "doc_type": "food",
+    "pagination": "page",
+    "page_param": "page_number",
+    "page_size_param": "page_size",
+    "page_size": 50,
+    "start_page": 1,
+    "page_kind": "number",
+    "arguments": {
+      "query": "*"
+    },
+    "ontology_class": "FoodCompositionRecord",
+    "params_style": "args"
+  },
+  "organism_observation_gbif": {
+    "server": "world-reference-mcp",
+    "tool": "gbif_occurrence_search",
+    "records_path": "items",
+    "id_field": "occurrence_id",
+    "updated_field": "last_parsed",
+    "doc_type": "organism_observation",
+    "pagination": "offset",
+    "page_param": "offset",
+    "page_size_param": "limit",
+    "page_size": 100,
+    "arguments": {
+      "scientific_name": "Vulpes vulpes"
+    },
+    "ontology_class": "OrganismObservation",
+    "params_style": "args"
+  },
+  "organism_observation_inaturalist": {
+    "server": "world-reference-mcp",
+    "tool": "inaturalist_observation_search",
+    "records_path": "items",
+    "id_field": "observation_id",
+    "updated_field": "time_observed_at",
+    "doc_type": "organism_observation",
+    "pagination": "page",
+    "page_param": "page",
+    "page_size_param": "per_page",
+    "page_size": 50,
+    "start_page": 1,
+    "page_kind": "number",
+    "arguments": {
+      "taxon_name": "Vulpes vulpes"
+    },
+    "ontology_class": "OrganismObservation",
+    "params_style": "args"
+  },
+  "weather_observation_open_meteo": {
+    "server": "world-reference-mcp",
+    "tool": "open_meteo_weather_observation",
+    "records_path": "items",
+    "id_field": "observation_date",
+    "doc_type": "weather_observation",
+    "pagination": "cursor",
+    "cursor_param": "start_date",
+    "cursor_path": "next_cursor",
+    "arguments": {
+      "latitude": 52.52,
+      "longitude": 13.405,
+      "window_days": 30
+    },
+    "ontology_class": "WeatherObservation",
+    "params_style": "args"
+  },
+  "weather_observation_noaa": {
+    "server": "world-reference-mcp",
+    "tool": "noaa_ghcnd_daily",
+    "records_path": "items",
+    "id_field": "observation_id",
+    "doc_type": "weather_observation",
+    "pagination": "offset",
+    "page_param": "offset",
+    "page_size_param": "limit",
+    "page_size": 200,
+    "arguments": {
+      "station_id": "GHCND:USW00023174",
+      "start_date": "2026-01-01",
+      "end_date": "2026-01-31"
+    },
+    "ontology_class": "WeatherObservation",
+    "params_style": "args"
+  },
+  "wikidata_alignment_taxon_ncbi": {
+    "server": "world-reference-mcp",
+    "tool": "wikidata_alignment_search",
+    "records_path": "items",
+    "id_field": "wikidata_id",
+    "title_field": "label",
+    "doc_type": "wikidata_alignment",
+    "pagination": "offset",
+    "page_param": "offset",
+    "page_size_param": "limit",
+    "page_size": 100,
+    "arguments": {
+      "entity_type": "taxon_ncbi"
+    },
+    "ontology_class": "Taxon",
+    "params_style": "args"
+  },
+  "wikidata_alignment_taxon_gbif": {
+    "server": "world-reference-mcp",
+    "tool": "wikidata_alignment_search",
+    "records_path": "items",
+    "id_field": "wikidata_id",
+    "title_field": "label",
+    "doc_type": "wikidata_alignment",
+    "pagination": "offset",
+    "page_param": "offset",
+    "page_size_param": "limit",
+    "page_size": 100,
+    "arguments": {
+      "entity_type": "taxon_gbif"
+    },
+    "ontology_class": "Taxon",
+    "params_style": "args"
+  },
+  "wikidata_alignment_chemical_entity": {
+    "server": "world-reference-mcp",
+    "tool": "wikidata_alignment_search",
+    "records_path": "items",
+    "id_field": "wikidata_id",
+    "title_field": "label",
+    "doc_type": "wikidata_alignment",
+    "pagination": "offset",
+    "page_param": "offset",
+    "page_size_param": "limit",
+    "page_size": 100,
+    "arguments": {
+      "entity_type": "chemical_entity"
+    },
+    "ontology_class": "ChemicalEntityTerm",
+    "params_style": "args"
+  },
+  "wikidata_alignment_country": {
+    "server": "world-reference-mcp",
+    "tool": "wikidata_alignment_search",
+    "records_path": "items",
+    "id_field": "wikidata_id",
+    "title_field": "label",
+    "doc_type": "wikidata_alignment",
+    "pagination": "offset",
+    "page_param": "offset",
+    "page_size_param": "limit",
+    "page_size": 100,
+    "arguments": {
+      "entity_type": "country"
+    },
+    "ontology_class": "Country",
+    "params_style": "args"
+  }
+}
