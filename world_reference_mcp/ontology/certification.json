@@ -1,7 +1,7 @@
 {
   "api_version": "graphos.io/v1",
   "artifacts": {
-    "connector_manifest.yml": "9677182f7441c9af1a89618d4df2afc4075eaf1eef233d91b7bd517c98c3f126",
+    "connector_manifest.yml": "55d3adcd6e44770c9e88c10d799cd3467139d38c1d57004e7c45ab30e4eea697",
     "world_reference_mcp/connectors/mcp_source_presets.json": "8bda3239bc749241467d9986d7cd684c3af55e297c312b4cb6dee1c176762fd8",
     "world_reference_mcp/connectors/tool_schema_fingerprints.json": "c4701082264f0b47f47322ad2fe20137b1832f95a0ec09e7aa19dea13bacf82d",
     "world_reference_mcp/ontology/fixtures/records.json": "3b7253452b8991f268716eb6e0e161089ef1bcb79dd283c0cff5ec905fc82da6",
@@ -32,5 +32,5 @@
   "signer": "UNSIGNED-PREVIEW",
   "signing_public_key": "",
   "status": "source-validated",
-  "validated_at": "2026-09-23T03:05:00Z"
+  "validated_at": "2026-09-28T00:00:00Z"
 }
