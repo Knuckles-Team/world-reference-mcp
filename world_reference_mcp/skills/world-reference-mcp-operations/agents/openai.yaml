@@ -1,0 +1,4 @@
+interface:
+  display_name: "World Reference Mcp Operations"
+  short_description: "Help with World Reference Mcp Operations tasks"
+  default_prompt: "Use $world-reference-mcp-operations to complete a governed provider workflow."

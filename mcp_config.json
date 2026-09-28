@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "world-reference-mcp": {
+      "command": "uv",
+      "args": [
+        "run",
+        "world-reference-mcp"
+      ],
+      "env": {
+        "MCP_TOOL_MODE": "condensed",
+        "TRANSPORT": "stdio",
+        "WORLD_REFERENCE_CONTACT_EMAIL": "connectors@knuckles.team",
+        "WORLD_REFERENCE_FDC_API_KEY": "env://WORLD_REFERENCE_FDC_API_KEY",
+        "WORLD_REFERENCE_NOAA_TOKEN": "env://WORLD_REFERENCE_NOAA_TOKEN"
+      }
+    }
+  }
+}
