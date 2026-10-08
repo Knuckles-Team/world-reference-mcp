@@ -7,7 +7,7 @@ description: >-
   (`fdc_food_search`). Use when the agent must look up a food's nutrient
   profile or resolve a food description to an FDC id. Do NOT use for organism
   taxa, reference terms, observations, or Wikidata alignment (use the other
-  `world-reference-*` skills).
+  `world-reference` skills).
 license: MIT
 tags: [world-reference, nutrition, fdc, usda, mcp]
 metadata:
