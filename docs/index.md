@@ -38,7 +38,7 @@ credentials are resolved server-side — never accepted as a tool argument.
 
 <div class="grid cards" markdown>
 
-- :material-rocket-launch: **[Installation](installation.md)** — pip, source, extras.
+- :material-rocket-start: **[Installation](installation.md)** — pip, source, extras.
 - :material-server-network: **[Deployment](deployment.md)** — run the MCP server, Docker, Caddy + Technitium.
 - :material-console: **[Usage](usage.md)** — the nine MCP tools and the vendor API clients.
 - :material-sitemap: **[Architecture](overview.md)** — the agent-connector-sdk pattern and MCP configuration.

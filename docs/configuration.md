@@ -70,7 +70,7 @@ and reports should contain counts, status, and opaque references only.
    `tool_schema_fingerprints.json` — diff it against the tracked copy).
 2. Confirm `WORLD_REFERENCE_FDC_API_KEY` and `WORLD_REFERENCE_NOAA_TOKEN` are present
    without printing their values.
-3. Verify the complete TLS chain with certificate verification enabled.
+3. Check the complete TLS chain with certificate verification enabled.
 4. Exercise `/health` (HTTP transports) and one least-privilege read tool
    (e.g. `taxonomy_gbif_search`).
 5. Record only sanitized pass/fail evidence and version identifiers.
