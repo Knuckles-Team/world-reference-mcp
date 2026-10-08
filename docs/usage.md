@@ -1,7 +1,7 @@
 # Usage — MCP / API
 
 `world-reference-mcp` exposes the same eight vendor APIs two ways: as **MCP tools**
-an agent calls, and as **Python API functions** (`world_reference_mcp.api.*`) you
+an agent calls, and as **Python API functions** (`world_reference_mcp.api.*`) the operator
 import directly. The `agent-connector-sdk` architecture is covered in
 [Overview](overview.md).
 

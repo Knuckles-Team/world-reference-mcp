@@ -81,3 +81,6 @@ packages = ["world_reference_mcp"]
 
 [tool.pipelines_hooks.stdout_writes]
 served_paths = ["world_reference_mcp"]
+
+[tool.pipelines_hooks.ste]
+exempt = ["specs/*", "specs/**/*"]

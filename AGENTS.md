@@ -47,7 +47,7 @@ instead:
   "a new API source is a preset, not code." There is no bespoke per-source
   `SourceAdapter` subclass anywhere in this package.
 - **No direct EG dependency.** This package depends on `agent-connector-sdk` only.
-  It never constructs its own EG client, never talks to a live graph, and never
+  It never builds its own EG client, never talks to a live graph, and never
   writes a `kg_ingest.py`-style direct-to-graph tool (compare
   `opensearch_mcp/kg_ingest.py`, which does exactly that). Delivery to a live graph
   is entirely the SDK's `agent_connector_sdk.runner`/`sinks` job, wired at deployment
@@ -77,9 +77,9 @@ whichever preset was read first — caught by `tests/test_presets_and_adapters.p
 Each preset also carries its intended `ontology_class` as an informational field in
 `mcp_source_presets.json`; AU's generator preserves it verbatim in
 `connector_manifest.yml`'s `sync[].raw.ontology_class`, but the manifest's own
-top-level `schema_mappings` section could not resolve it automatically (AU's
+top-level `schema_mappings` section can not resolve it automatically (AU's
 hub-class crosswalk predates these brand-new EG classes — the same "UNRESOLVED,
-verify manually" outcome every sibling's first pass gets for its own new resources).
+check manually" outcome every sibling's first pass gets for its own new resources).
 `adapters.py` is the real authority; `connector_manifest.yml`'s crosswalk is advisory.
 
 ## Credentials

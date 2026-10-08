@@ -123,7 +123,7 @@ Every other tool is keyless and needs no credential. Per-source base-URL and
 request-pacing overrides (`WORLD_REFERENCE_<SOURCE>_BASE_URL`,
 `WORLD_REFERENCE_<SOURCE>_MIN_INTERVAL`, `WORLD_REFERENCE_<SOURCE>_PAGE_SIZE`) are
 documented in [`.env.example`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/.env.example).
-Copy it to `.env` and populate only what you use.
+Copy it to `.env` and populate only what the operator use.
 
 ## Docker Compose
 
@@ -161,7 +161,7 @@ docker compose -f docker/mcp.compose.yml logs -f
 
 ## Behind a Caddy reverse proxy
 
-Expose the HTTP server on a hostname with automatic TLS. Add to your `Caddyfile`:
+Expose the HTTP server on a hostname with automatic TLS. Add to the operator's `Caddyfile`:
 
 ```caddy
 # Internal (self-signed) — homelab .example.invalid zone
@@ -205,7 +205,7 @@ this as a tool.
 
 ## Register with an MCP client
 
-Add to your client's `mcp_config.json`:
+Add to the operator's client's `mcp_config.json`:
 
 ```json
 {
