@@ -2,7 +2,7 @@
 name: world-reference-mcp-operations
 skill_type: skill
 description: >-
-  Operate world-reference-mcp through its governed MCP and GraphOS
+  Operate world-reference-mcp through its governed MCP and Arbora
   capabilities, including world reference taxonomy, world reference terms,
   world reference nutrition, world reference observations, world reference
   alignment. Use when a request requires this provider's read, change,
@@ -11,7 +11,7 @@ description: >-
 
 # World Reference Mcp Operations
 
-Use the provider's governed MCP tools through GraphOS delegation.
+Use the provider's governed MCP tools through Arbora delegation.
 
 ## Workflow
 
