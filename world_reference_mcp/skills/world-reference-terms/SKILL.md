@@ -13,7 +13,7 @@ license: MIT
 tags: [world-reference, ontology, obo, ols4, mcp]
 metadata:
   author: Genius
-  version: '0.1.0'
+  version: '0.2.0'
 ---
 
 # World Reference Terms
