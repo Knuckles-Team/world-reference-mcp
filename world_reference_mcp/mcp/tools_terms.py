@@ -11,11 +11,13 @@ from world_reference_mcp.config import OBO_ONTOLOGIES
 from world_reference_mcp.errors import UnknownOntologyError
 from world_reference_mcp.mcp.clients import Clients
 
+READ_ONLY = {"readOnlyHint": True, "idempotentHint": True, "openWorldHint": True}
+
 
 def register_term_tools(mcp: FastMCP, clients: Clients) -> None:
     """Register the OLS4 reference-term enumeration tool."""
 
-    @mcp.tool(tags={"reference-terms"})
+    @mcp.tool(tags={"reference-terms"}, annotations=READ_ONLY)
     async def reference_term_list(
         ontology: str, page: int = 0, size: int = 100
     ) -> dict[str, Any]:

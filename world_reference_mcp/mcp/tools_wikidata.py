@@ -10,11 +10,13 @@ from world_reference_mcp.api import wikidata
 from world_reference_mcp.errors import UnknownEntityTypeError
 from world_reference_mcp.mcp.clients import Clients
 
+READ_ONLY = {"readOnlyHint": True, "idempotentHint": True, "openWorldHint": True}
+
 
 def register_wikidata_tools(mcp: FastMCP, clients: Clients) -> None:
     """Register the Wikidata alignment-search tool."""
 
-    @mcp.tool(tags={"alignment"})
+    @mcp.tool(tags={"alignment"}, annotations=READ_ONLY)
     async def wikidata_alignment_search(
         entity_type: str, offset: int = 0, limit: int = 100
     ) -> dict[str, Any]:
