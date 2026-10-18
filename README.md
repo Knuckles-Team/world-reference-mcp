@@ -1,6 +1,6 @@
 # world-reference-mcp
 
-*Version: 0.2.0*
+*Version: 0.2.1*
 
 World-reference data — organism taxonomy, OBO reference terms, food/nutrition
 composition, organism and weather observations, and Wikidata alignment — as an
