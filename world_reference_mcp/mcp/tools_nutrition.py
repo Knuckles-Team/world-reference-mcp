@@ -10,11 +10,13 @@ from world_reference_mcp.api import fdc
 from world_reference_mcp.credentials import resolve_fdc_api_key
 from world_reference_mcp.mcp.clients import Clients
 
+READ_ONLY = {"readOnlyHint": True, "idempotentHint": True, "openWorldHint": True}
+
 
 def register_nutrition_tools(mcp: FastMCP, clients: Clients) -> None:
     """Register the FoodData Central food-search tool."""
 
-    @mcp.tool(tags={"nutrition"})
+    @mcp.tool(tags={"nutrition"}, annotations=READ_ONLY)
     async def fdc_food_search(
         query: str, page_number: int = 1, page_size: int = 50
     ) -> dict[str, Any]:

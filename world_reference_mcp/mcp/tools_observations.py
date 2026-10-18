@@ -16,11 +16,13 @@ from world_reference_mcp.api import gbif, inaturalist, noaa, open_meteo
 from world_reference_mcp.credentials import resolve_noaa_token
 from world_reference_mcp.mcp.clients import Clients
 
+READ_ONLY = {"readOnlyHint": True, "idempotentHint": True, "openWorldHint": True}
+
 
 def register_observation_tools(mcp: FastMCP, clients: Clients) -> None:
     """Register the organism-occurrence and weather-observation tools."""
 
-    @mcp.tool(tags={"observations", "organism"})
+    @mcp.tool(tags={"observations", "organism"}, annotations=READ_ONLY)
     async def gbif_occurrence_search(
         scientific_name: str, offset: int = 0, limit: int = 100
     ) -> dict[str, Any]:
@@ -30,7 +32,7 @@ def register_observation_tools(mcp: FastMCP, clients: Clients) -> None:
             client, scientific_name=scientific_name, offset=offset, limit=limit
         )
 
-    @mcp.tool(tags={"observations", "organism"})
+    @mcp.tool(tags={"observations", "organism"}, annotations=READ_ONLY)
     async def inaturalist_observation_search(
         taxon_name: str, page: int = 1, per_page: int = 50
     ) -> dict[str, Any]:
@@ -40,7 +42,7 @@ def register_observation_tools(mcp: FastMCP, clients: Clients) -> None:
             client, taxon_name=taxon_name, page=page, per_page=per_page
         )
 
-    @mcp.tool(tags={"observations", "weather"})
+    @mcp.tool(tags={"observations", "weather"}, annotations=READ_ONLY)
     async def open_meteo_weather_observation(
         latitude: float, longitude: float, start_date: str = "", window_days: int = 30
     ) -> dict[str, Any]:
@@ -59,7 +61,7 @@ def register_observation_tools(mcp: FastMCP, clients: Clients) -> None:
             window_days=window_days,
         )
 
-    @mcp.tool(tags={"observations", "weather"})
+    @mcp.tool(tags={"observations", "weather"}, annotations=READ_ONLY)
     async def noaa_ghcnd_daily(
         station_id: str,
         start_date: str,
