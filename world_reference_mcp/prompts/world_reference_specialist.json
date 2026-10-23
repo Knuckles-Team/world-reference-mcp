@@ -4,8 +4,6 @@
   "schema_version": "1.0",
   "prompt_version": "0.2.0",
   "source": "world-reference-mcp",
-  "extends": "agent-utilities:base",
-  "compose": "append",
   "description": "World-reference specialist: organism taxonomy, OBO reference terms, food composition, organism/weather observations, and Wikidata cross-source alignment over the world-reference-mcp MCP server.",
   "metadata": {
     "topic": "World-reference data (taxonomy, ontology terms, nutrition, observations, alignment)",

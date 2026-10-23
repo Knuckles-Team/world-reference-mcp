@@ -59,7 +59,6 @@ world-reference-mcp/
 ├── tests/                        # Test suite
 ├── docs/                         # Documentation (this site)
 ├── pyproject.toml                # Package metadata
-├── connector_manifest.yml        # Machine-generated connector manifest
 ├── mcp_config.json               # MCP client configuration template
 └── docker/Dockerfile             # Container deployment
 ```

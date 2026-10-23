@@ -14,7 +14,7 @@
 # (crates/eg-core/ontology/{life,environment,nutrition}-v1.ttl) on EG branch
 # `feat/world-model-ontology`. This connector maps each of its 17 declared
 # streams onto one of those existing classes through
-# `connectors/mcp_source_presets.json`'s `ontology_class` hint, resolved at
+# `connectors/world_reference_mcp.connector_sources`'s `ontology_class` hint, resolved at
 # runtime by `world_reference_mcp.connectors.adapters.build_schema_mappings`
 # — never by duplicating the class here. See AGENTS.md "Ontology mapping".
 
@@ -38,5 +38,4 @@
     federated into the agent-utilities knowledge-graph hub. The world-model
     domain classes each stream lands on are epistemic-graph-owned; this
     ontology models only this connector's own admin state, not a second copy
-    of that domain.""" ;
-    owl:imports <http://knuckles.team/kg> .
+    of that domain.""" .
