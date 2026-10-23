@@ -1,0 +1,22 @@
+{
+  "schema_version": 2,
+  "spec_id": "CONN-WORLD-REFERENCE-MCP-CONNECTOR-CONTENT",
+  "owner_repo": "world-reference-mcp",
+  "delivery_state": "VERIFIED",
+  "requirement_ids": [
+    "CONN-WORLD-REFERENCE-MCP-CONNECTOR-CONTENT-R001"
+  ],
+  "requirements": [
+    {
+      "id": "CONN-WORLD-REFERENCE-MCP-CONNECTOR-CONTENT-R001",
+      "title": "Default content",
+      "delivery_state": "VERIFIED",
+      "landed_in": [
+        "814125342cb0"
+      ],
+      "verified_by": [
+        "tests/test_default_content_surfaces.py:15"
+      ]
+    }
+  ]
+}
