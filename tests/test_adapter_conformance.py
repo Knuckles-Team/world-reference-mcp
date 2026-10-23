@@ -103,7 +103,7 @@ async def _verified_adapter(sessions: SessionFactory) -> McpToolSourceAdapter:
         preset,
         connector="world-reference-mcp",
         tool_schema_sha256=live.compatibility_sha256,
-        mapping_reference="manifest:world-reference-mcp#schema_mappings/taxon_ncbi_small",
+        mapping_reference="connector:world-reference-mcp#mappings/taxon_ncbi_small",
         schema_mappings={"taxon_ncbi_small": SchemaMapping(ontology_class="Taxon")},
     )
 
