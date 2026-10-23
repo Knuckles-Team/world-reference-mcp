@@ -1,0 +1,8 @@
+{
+  "schema_version": 2,
+  "spec_id": "CONN-WORLD-REFERENCE-MCP-HTTP",
+  "owner_repo": "world-reference-mcp",
+  "delivery_state": "SPECIFIED",
+  "requirement_ids": [],
+  "requirements": []
+}
