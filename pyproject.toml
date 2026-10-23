@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "world-reference-mcp"
-version = "0.3.2"
+version = "0.3.3"
 description = "World-reference data (taxonomy, OBO terms, nutrition, observations, Wikidata alignment) MCP server and agent-connector-sdk source adapters"
 readme = "README.md"
 classifiers = [
@@ -44,6 +44,10 @@ world-reference-mcp = "world_reference_mcp.prompts"
 
 [project.entry-points."agent_connector_sdk.source_connector_providers"]
 world-reference-mcp = "world_reference_mcp.connectors"
+
+# The one declared connector identity: the fleet name (SDK-CONNECTOR-CONTROL-R071).
+[project.entry-points."agent_connector_sdk.connector"]
+world-reference-mcp = "world_reference_mcp"
 
 [tool.uv.workspace]
 members = ["."]

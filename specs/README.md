@@ -13,3 +13,4 @@ Read the existing specs first. Extend the spec that owns the behavior. Create a 
 ## Local specifications
 
 - [`http`](http/spec.md): Outbound HTTP pacing
+- [`CONN-WORLD-REFERENCE-MCP-CONNECTOR-CONTENT`](connector-content/spec.md) — The connector serves its packaged content.
