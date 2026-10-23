@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "world-reference-mcp"
-version = "0.3.2"
+version = "0.3.3"
 description = "World-reference data (taxonomy, OBO terms, nutrition, observations, Wikidata alignment) MCP server and agent-connector-sdk source adapters"
 readme = "README.md"
 classifiers = [
