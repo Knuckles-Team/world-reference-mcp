@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "world-reference-mcp"
-version = "0.3.1"
+version = "0.3.2"
 description = "World-reference data (taxonomy, OBO terms, nutrition, observations, Wikidata alignment) MCP server and agent-connector-sdk source adapters"
 readme = "README.md"
 classifiers = [
@@ -16,7 +16,7 @@ classifiers = [
 ]
 requires-python = ">=3.12, <3.15"
 dependencies = [
-    "agent-connector-sdk[mcp]>=0.3.13,<1.0.0",
+    "agent-connector-sdk[mcp]>=0.3.18,<1.0.0",
     "httpx>=0.28.1",
 ]
 
