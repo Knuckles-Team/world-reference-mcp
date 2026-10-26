@@ -127,8 +127,8 @@ Copy it to `.env` and populate only what the operator use.
 
 ## Docker Compose
 
-The repo ships [`docker/mcp.compose.yml`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/docker/mcp.compose.yml).
-It reads a sibling `.env` and publishes the HTTP server on `:8000`:
+The shared connector pipeline renders [`docker/mcp.compose.yml`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/docker/mcp.compose.yml).
+It reads a sibling `.env` and publishes the HTTP server on localhost `:8000`:
 
 ```yaml
 services:
@@ -145,7 +145,7 @@ services:
       - PORT=8000
       - TRANSPORT=streamable-http
     ports:
-      - "8000:8000"
+      - "127.0.0.1:8000:8000"
     healthcheck:
       test: ["CMD", "python3", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
       interval: 30s

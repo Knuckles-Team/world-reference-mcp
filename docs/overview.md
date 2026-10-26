@@ -60,7 +60,7 @@ world-reference-mcp/
 ├── docs/                         # Documentation (this site)
 ├── pyproject.toml                # Package metadata
 ├── mcp_config.json               # MCP client configuration template
-└── docker/Dockerfile             # Container deployment
+└── docker/Dockerfile             # Release-rendered container deployment
 ```
 
 ## MCP Configuration
