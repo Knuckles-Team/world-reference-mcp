@@ -2,4 +2,24 @@
 
 from __future__ import annotations
 
-__version__ = "0.3.4"
+import tomllib
+from importlib.metadata import PackageNotFoundError
+from importlib.metadata import version as _distribution_version
+from pathlib import Path
+
+
+def _source_version() -> str:
+    """Read the project version when importing directly from an unpackaged checkout."""
+    try:
+        project = Path(__file__).resolve().parents[1] / "pyproject.toml"
+        return str(
+            tomllib.loads(project.read_text(encoding="utf-8"))["project"]["version"]
+        )
+    except (OSError, KeyError, TypeError, tomllib.TOMLDecodeError):
+        return "0.0.0"
+
+
+try:
+    __version__ = _distribution_version("world-reference-mcp")
+except PackageNotFoundError:
+    __version__ = _source_version()

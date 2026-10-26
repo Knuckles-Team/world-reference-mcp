@@ -75,7 +75,9 @@ resolve the credential first:
 ```python
 from world_reference_mcp.credentials import resolve_fdc_api_key
 
-api_key = resolve_fdc_api_key()   # reads WORLD_REFERENCE_FDC_API_KEY (env:// or openbao://)
+api_key = (
+    resolve_fdc_api_key()
+)  # reads WORLD_REFERENCE_FDC_API_KEY (env:// or openbao://)
 ```
 
 ## As declarative source-adapter streams

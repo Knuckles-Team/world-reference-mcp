@@ -17,11 +17,7 @@ from starlette.responses import JSONResponse
 
 from world_reference_mcp._version import __version__
 from world_reference_mcp.mcp.clients import Clients
-from world_reference_mcp.mcp.tools_nutrition import register_nutrition_tools
-from world_reference_mcp.mcp.tools_observations import register_observation_tools
-from world_reference_mcp.mcp.tools_taxonomy import register_taxonomy_tools
-from world_reference_mcp.mcp.tools_terms import register_term_tools
-from world_reference_mcp.mcp.tools_wikidata import register_wikidata_tools
+from world_reference_mcp.tools import register_business_surface
 
 __all__ = ["build_server"]
 
@@ -45,11 +41,7 @@ def build_server(
         command_args=command_args,
     )
     clients = Clients()
-    register_taxonomy_tools(mcp, clients)
-    register_term_tools(mcp, clients)
-    register_nutrition_tools(mcp, clients)
-    register_observation_tools(mcp, clients)
-    register_wikidata_tools(mcp, clients)
+    register_business_surface(mcp, clients)
 
     @mcp.custom_route("/health", methods=["GET"])
     async def health_check(_request: Request) -> JSONResponse:

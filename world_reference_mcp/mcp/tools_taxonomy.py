@@ -17,7 +17,10 @@ def register_taxonomy_tools(mcp: FastMCP, clients: Clients) -> None:
 
     @mcp.tool(tags={"taxonomy"}, annotations=READ_ONLY)
     async def taxonomy_ncbi_search(
-        term: str, retstart: int = 0, retmax: int = 50, modified_since: str = ""  # noqa: V107
+        term: str,
+        retstart: int = 0,
+        retmax: int = 50,
+        modified_since: str = "",  # noqa: V107
     ) -> dict[str, Any]:
         """Search NCBI Taxonomy by an Entrez query term (e.g. ``"Mammalia[Subtree]"``).
 
