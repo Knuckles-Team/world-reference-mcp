@@ -16,13 +16,13 @@ classifiers = [
 ]
 requires-python = ">=3.12, <3.15"
 dependencies = [
-    "agent-connector-sdk[mcp]>=0.4.1,<1.0.0",
+    "agent-connector-sdk[mcp]>=0.5.4,<0.6.0",
     "httpx>=0.28.1",
 ]
 
 [[project.authors]]
-name = "Project Maintainers"
-email = "maintainers@users.noreply.github.com"
+name = "Repository Maintainers"
+email = "maintainers@knuckles.team"
 
 [project.license]
 text = "MIT"
@@ -31,20 +31,14 @@ text = "MIT"
 test = ["pytest-xdist>=3.8.0", "pytest>=9.1.1", "pytest-asyncio>=1.4.0", "pytest-cov>=7.1.0"]
 
 [project.scripts]
-world-reference-mcp = "world_reference_mcp.mcp_server:mcp_server"
-
-[project.entry-points."agent_connector_sdk.skill_providers"]
-world-reference-mcp = "world_reference_mcp.skills"
-
-[project.entry-points."agent_connector_sdk.ontology_providers"]
-world-reference-mcp = "world_reference_mcp.ontology"
+world-reference-mcp = "agent_connector_sdk.cli:serve"
 
 [project.entry-points."agent_connector_sdk.prompt_providers"]
 world-reference-mcp = "world_reference_mcp.prompts"
 
 # The one declared connector identity: the fleet name (SDK-CONNECTOR-CONTROL-R071).
 [project.entry-points."agent_connector_sdk.connector"]
-world-reference-mcp = "world_reference_mcp"
+world-reference-mcp = "world_reference_mcp:connector"
 
 [tool.uv.workspace]
 members = ["."]

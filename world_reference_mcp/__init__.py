@@ -14,6 +14,22 @@ graph is owned by ``agent_connector_sdk.runner``/``sinks``.
 
 from __future__ import annotations
 
-from world_reference_mcp._version import __version__
+from agent_connector_sdk.connector import Connector
 
-__all__ = ["__version__"]
+from world_reference_mcp._version import __version__
+from world_reference_mcp.tools import register_tools
+
+_INSTRUCTIONS = (
+    "World-reference data (taxonomy, OBO reference terms, food composition, "
+    "organism/weather observations, Wikidata alignment) for automatic "
+    "enrichment onto the epistemic-graph world_model ontology. Every tool is "
+    "keyless except fdc_food_search and noaa_ghcnd_daily, whose credentials "
+    "are resolved server-side — never accept them as tool arguments."
+)
+
+connector = Connector(
+    instructions=_INSTRUCTIONS,
+    extra_registrations=(register_tools,),
+)
+
+__all__ = ["__version__", "connector"]
