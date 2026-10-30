@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "world-reference-mcp"
 version = "0.3.5"
-description = "World-reference data (taxonomy, OBO terms, nutrition, observations, Wikidata alignment) MCP server and agent-connector-sdk source adapters"
+description = "World-reference data (taxonomy, OBO terms, nutrition, observations, Wikidata alignment) MCP server and scion-sdk source adapters"
 readme = "README.md"
 classifiers = [
     "Development Status :: 3 - Alpha",
@@ -16,7 +16,7 @@ classifiers = [
 ]
 requires-python = ">=3.12, <3.15"
 dependencies = [
-    "scion-sdk[mcp]>=0.5.9,<0.6.0",
+    "scion-sdk[mcp]>=0.6.0,<0.7.0",
     "httpx>=0.28.1",
 ]
 
@@ -31,13 +31,13 @@ text = "MIT"
 test = ["pytest-xdist>=3.8.0", "pytest>=9.1.1", "pytest-asyncio>=1.4.0", "pytest-cov>=7.1.0"]
 
 [project.scripts]
-world-reference-mcp = "agent_connector_sdk.cli:serve"
+world-reference-mcp = "scion_sdk.cli:serve"
 
-[project.entry-points."agent_connector_sdk.prompt_providers"]
+[project.entry-points."scion_sdk.prompt_providers"]
 world-reference-mcp = "world_reference_mcp.prompts"
 
 # The one declared connector identity: the fleet name (SCION-CONNECTOR-CONTROL-R071).
-[project.entry-points."agent_connector_sdk.connector"]
+[project.entry-points."scion_sdk.connector"]
 world-reference-mcp = "world_reference_mcp:connector"
 
 [tool.uv.workspace]

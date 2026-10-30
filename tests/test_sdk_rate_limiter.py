@@ -3,7 +3,7 @@
 from __future__ import annotations
 
 import pytest
-from agent_connector_sdk.httpsupport import RateLimiter
+from scion_sdk.httpsupport import RateLimiter
 
 from world_reference_mcp import http_clients
 from world_reference_mcp.mcp.clients import Clients

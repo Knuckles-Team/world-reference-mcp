@@ -6,7 +6,7 @@
 `world-reference-mcp` supports local stdio, a loopback-only development listener, a
 least-privilege stdio container, and a remote authenticated HTTPS boundary. Provider
 endpoint, credential, selector, and trust material are supplied at runtime through
-environment variables and `agent_connector_sdk.credentials` references; none is
+environment variables and `scion_sdk.credentials` references; none is
 stored in this repository.
 
 ### Installed stdio process
@@ -71,7 +71,7 @@ giving it a DNS name with Technitium.
 > `world-reference-mcp`) — a typed, deterministic tool surface over eight public
 > reference-data APIs. Delivery of its 17 declarative streams to a live
 > epistemic-graph knowledge graph is a separate deployment-layer concern, owned by
-> `agent_connector_sdk.runner`/`sinks` (see [`AGENTS.md`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/AGENTS.md)), not by this server process.
+> `scion_sdk.runner`/`sinks` (see [`AGENTS.md`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/AGENTS.md)), not by this server process.
 
 ## Run the MCP server
 

@@ -1,5 +1,5 @@
 site_name: "world-reference-mcp"
-site_description: "World-reference data (organism taxonomy, OBO reference terms, food/nutrition composition, organism and weather observations, Wikidata alignment) MCP Server for the agent-utilities ecosystem — a typed, deterministic tool surface plus declarative agent-connector-sdk source adapters."
+site_description: "World-reference data (organism taxonomy, OBO reference terms, food/nutrition composition, organism and weather observations, Wikidata alignment) MCP Server for the agent-utilities ecosystem — a typed, deterministic tool surface plus declarative scion-sdk source adapters."
 site_url: "https://knuckles-team.github.io/world-reference-mcp/"
 repo_name: "Knuckles-Team/world-reference-mcp"
 repo_url: "https://github.com/Knuckles-Team/world-reference-mcp"

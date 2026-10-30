@@ -2,7 +2,7 @@
 
 World-reference data — organism taxonomy, OBO reference terms, food/nutrition
 composition, organism and weather observations, and Wikidata alignment — as an
-MCP tool surface and, through `agent-connector-sdk`'s declarative `mcp_tool`
+MCP tool surface and, through `scion-sdk`'s declarative `mcp_tool`
 source adapter, as bounded, checkpointed ingestion streams onto the
 epistemic-graph `world_model` ontology (`feat/world-model-ontology`).
 
@@ -24,7 +24,7 @@ Nine MCP tools, one FastMCP server (`world-reference-mcp` console script):
 `open_meteo_weather_observation`, `noaa_ghcnd_daily`, `wikidata_alignment_search`.
 
 Every tool is keyless except `fdc_food_search` and `noaa_ghcnd_daily`, whose
-credentials are resolved server-side through `agent_connector_sdk.credentials`
+credentials are resolved server-side through `scion_sdk.credentials`
 (`WORLD_REFERENCE_FDC_API_KEY`, `WORLD_REFERENCE_NOAA_TOKEN`) — never accepted
 as a tool argument.
 

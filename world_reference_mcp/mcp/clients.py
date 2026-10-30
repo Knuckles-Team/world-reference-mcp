@@ -10,7 +10,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field
 
 import httpx
-from agent_connector_sdk.httpsupport import RateLimiter
+from scion_sdk.httpsupport import RateLimiter
 
 from world_reference_mcp import config
 from world_reference_mcp.http_clients import build_async_client

@@ -4,8 +4,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from agent_connector_sdk.connector_hooks import RegistrationContext
 from fastmcp import FastMCP
+from scion_sdk.connector_hooks import RegistrationContext
 
 from world_reference_mcp.mcp.clients import Clients
 from world_reference_mcp.mcp.tools_nutrition import (

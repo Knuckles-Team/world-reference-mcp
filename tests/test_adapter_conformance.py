@@ -5,7 +5,7 @@ Exercises the full path an EG sync run takes — ``McpToolSourceAdapter`` ->
 function (monkeypatched here to a small deterministic fixture instead of a
 live NCBI call) -> back through the generic adapter's pagination, checkpoint
 and provenance machinery — using the SDK's own conformance-check functions
-(:mod:`agent_connector_sdk.testing.source_adapters`), the same functions a
+(:mod:`scion_sdk.testing.source_adapters`), the same functions a
 sync run's own tests would use.
 """
 
@@ -16,13 +16,14 @@ from contextlib import asynccontextmanager
 from typing import Any
 
 import pytest
-from agent_connector_sdk.adapters.mcp_tool import McpToolSourceAdapter
-from agent_connector_sdk.manifest.live_contract import validate_preset_tool_contract
-from agent_connector_sdk.manifest.model import SchemaMapping
-from agent_connector_sdk.manifest.presets import ToolPreset
-from agent_connector_sdk.ports.session import TransportEndpoint
-from agent_connector_sdk.testing.results import SessionFactory
-from agent_connector_sdk.testing.source_adapters import (
+from fastmcp import FastMCP
+from scion_sdk.adapters.mcp_tool import McpToolSourceAdapter
+from scion_sdk.manifest.live_contract import validate_preset_tool_contract
+from scion_sdk.manifest.model import SchemaMapping
+from scion_sdk.manifest.presets import ToolPreset
+from scion_sdk.ports.session import TransportEndpoint
+from scion_sdk.testing.results import SessionFactory
+from scion_sdk.testing.source_adapters import (
     check_capability_descriptor,
     check_checkpoint_resume,
     check_idempotent_rerun,
@@ -31,8 +32,7 @@ from agent_connector_sdk.testing.source_adapters import (
     check_provenance_completeness,
     sweep,
 )
-from agent_connector_sdk.transports.mcp import McpTransport
-from fastmcp import FastMCP
+from scion_sdk.transports.mcp import McpTransport
 
 from world_reference_mcp.api import ncbi_taxonomy
 from world_reference_mcp.mcp.clients import Clients

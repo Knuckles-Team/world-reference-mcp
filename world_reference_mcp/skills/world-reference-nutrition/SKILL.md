@@ -11,7 +11,7 @@ description: >-
 license: MIT
 tags: [world-reference, nutrition, fdc, usda, mcp]
 metadata:
-  author: Genius
+  author: Knuckles-Team
   version: '0.2.0'
 ---
 

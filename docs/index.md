@@ -2,7 +2,7 @@
 
 World-reference data — organism taxonomy, OBO reference terms, food/nutrition
 composition, organism and weather observations, and Wikidata alignment — as a
-typed, deterministic **MCP tool surface** and, through `agent-connector-sdk`'s
+typed, deterministic **MCP tool surface** and, through `scion-sdk`'s
 declarative `mcp_tool` source adapter, as bounded, checkpointed ingestion
 streams onto the epistemic-graph `world_model` ontology.
 
@@ -25,7 +25,7 @@ nine typed MCP tools. It provides:
   covering taxonomy, reference terms, nutrition, organism/weather observations, and
   Wikidata alignment.
 - **17 declarative source-adapter presets** (`connectors/mcp_source_presets.json`) —
-  each stream is one `agent_connector_sdk.manifest.presets.ToolPreset` entry, extracted
+  each stream is one `scion_sdk.manifest.presets.ToolPreset` entry, extracted
   by the SDK's generic `McpToolSourceAdapter`. There is no bespoke per-source adapter
   code in this package.
 - Governed HTTP (bounded timeouts, TLS, retry/backoff) and per-host rate limiting sized
@@ -41,7 +41,7 @@ credentials are resolved server-side — never accepted as a tool argument.
 - :material-rocket-start: **[Installation](installation.md)** — pip, source, extras.
 - :material-server-network: **[Deployment](deployment.md)** — run the MCP server, Docker, Caddy + Technitium.
 - :material-console: **[Usage](usage.md)** — the nine MCP tools and the vendor API clients.
-- :material-sitemap: **[Architecture](overview.md)** — the agent-connector-sdk pattern and MCP configuration.
+- :material-sitemap: **[Architecture](overview.md)** — the scion-sdk pattern and MCP configuration.
 - :material-tag-multiple: **[Concepts](concepts.md)** — the ecosystem concept registry.
 
 </div>
