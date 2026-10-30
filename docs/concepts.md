@@ -2,7 +2,7 @@
 
 > **Prefix**: `EH-*` (ledger rows) / `RF-ADR-*` (refactor architecture decisions)
 > **Version**: 0.1.0
-> **Bridge**: [`agent-connector-sdk`](https://github.com/Knuckles-Team/agent-connector-sdk/blob/main/docs/overview.md) (connector SDK: MCP server construction, manifests, content packs, governed HTTP/credentials)
+> **Bridge**: [`scion-sdk`](https://github.com/Knuckles-Team/scion-sdk/blob/main/docs/overview.md) (connector SDK: MCP server construction, manifests, content packs, governed HTTP/credentials)
 
 ---
 
@@ -17,24 +17,24 @@
 | `EH-362` | Alignment stream | Wikidata SPARQL -> cross-source join keys for `Taxon`/`ChemicalEntityTerm`/`Country` |
 | `RF-ADR-009 §2.2.1` | "A new API source is a preset, not code" | The declarative `mcp_tool` adapter pattern this package pilots |
 
-## Cross-Project References (from agent-connector-sdk)
+## Cross-Project References (from scion-sdk)
 
 | Reference | Name | Origin |
 |------------|------|--------|
-| `agent_connector_sdk.adapters.mcp_tool.McpToolSourceAdapter` | Declarative source adapter | agent-connector-sdk |
-| `agent_connector_sdk.credentials` | `env://`/`openbao://` credential resolution | agent-connector-sdk |
-| `agent_connector_sdk.http` | Governed HTTP transport (TLS, retry/backoff, redaction) | agent-connector-sdk |
-| `agent_connector_sdk.mcp.server.create_mcp_server` | MCP server construction, auth, network-exposure checks | agent-connector-sdk |
-| `agent_connector_sdk.runner` / `agent_connector_sdk.sinks` | Connector-sync scheduler + knowledge-graph delivery | agent-connector-sdk |
+| `scion_sdk.adapters.mcp_tool.McpToolSourceAdapter` | Declarative source adapter | scion-sdk |
+| `scion_sdk.credentials` | `env://`/`openbao://` credential resolution | scion-sdk |
+| `scion_sdk.http` | Governed HTTP transport (TLS, retry/backoff, redaction) | scion-sdk |
+| `scion_sdk.mcp.server.create_mcp_server` | MCP server construction, auth, network-exposure checks | scion-sdk |
+| `scion_sdk.runner` / `scion_sdk.sinks` | Connector-sync scheduler + knowledge-graph delivery | scion-sdk |
 
-## Synergy with agent-connector-sdk
+## Synergy with scion-sdk
 
-This project integrates with `agent-connector-sdk` by declaring every one of its 17
+This project integrates with `scion-sdk` by declaring every one of its 17
 streams as a `ToolPreset` in `connectors/mcp_source_presets.json`, extracted by the
 SDK's own generic `McpToolSourceAdapter` rather than a bespoke per-source adapter
 class. It deliberately does **not** import `agent_utilities` directly or construct
 its own epistemic-graph client — see [`AGENTS.md`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/AGENTS.md)
-"Why agent-connector-sdk, not the legacy AU client-reflection pattern" for the full
+"Why scion-sdk, not the legacy AU client-reflection pattern" for the full
 rationale. Its `skills`/`prompts`/`ontology` packages are still discovered by the
 agent-utilities hub through the standard `agent_utilities.*_providers` entry points —
 that discovery is one-directional (the hub imports this package's data), so it does

@@ -1,28 +1,28 @@
 # world-reference-mcp — Concept Overview
 
-> **Category**: Reference Data | **Ecosystem Role**: MCP Server + `agent-connector-sdk` source adapters
-> Built on [`agent-connector-sdk`](https://github.com/Knuckles-Team/agent-connector-sdk) —
+> **Category**: Reference Data | **Ecosystem Role**: MCP Server + `scion-sdk` source adapters
+> Built on [`scion-sdk`](https://github.com/Knuckles-Team/scion-sdk) —
 > the fleet's connector SDK (MCP server construction, manifests, content packs,
 > governed HTTP/credentials).
 
 ## Description
 
 World-reference data (taxonomy, OBO terms, nutrition, observations, Wikidata
-alignment) MCP server and `agent-connector-sdk` source adapters.
+alignment) MCP server and `scion-sdk` source adapters.
 
 ## Enterprise Readiness
 
 This package inherits its governed transport and content-pack infrastructure from
-`agent-connector-sdk`, not from `agent-utilities` directly (see "Why
-agent-connector-sdk" in [`AGENTS.md`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/AGENTS.md)):
+`scion-sdk`, not from `agent-utilities` directly (see "Why
+scion-sdk" in [`AGENTS.md`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/AGENTS.md)):
 
 | Feature | Status | Source |
 |:--------|:-------|:-------|
-| **Governed HTTP transport** | ✅ Built-in | `agent_connector_sdk.http` — bounded timeouts, TLS verification, retry/backoff, redacted-URL logging |
-| **Credential resolution** | ✅ Built-in | `agent_connector_sdk.credentials` — `env://` / `openbao://` reference schemes, never a raw value in a tool argument |
-| **MCP server construction, auth, network-exposure checks** | ✅ Built-in | `agent_connector_sdk.mcp.server.create_mcp_server` |
-| **Declarative source adapters** | ✅ Built-in | `agent_connector_sdk.adapters.mcp_tool.McpToolSourceAdapter` — one preset per stream, no bespoke code |
-| **Content-pack certification** | ✅ Built-in | `agent_connector_sdk.certify` — `connector_manifest.yml` + ontology/shapes/fixtures certification bundle |
+| **Governed HTTP transport** | ✅ Built-in | `scion_sdk.http` — bounded timeouts, TLS verification, retry/backoff, redacted-URL logging |
+| **Credential resolution** | ✅ Built-in | `scion_sdk.credentials` — `env://` / `openbao://` reference schemes, never a raw value in a tool argument |
+| **MCP server construction, auth, network-exposure checks** | ✅ Built-in | `scion_sdk.mcp.server.create_mcp_server` |
+| **Declarative source adapters** | ✅ Built-in | `scion_sdk.adapters.mcp_tool.McpToolSourceAdapter` — one preset per stream, no bespoke code |
+| **Content-pack certification** | ✅ Built-in | `scion_sdk.certify` — `connector_manifest.yml` + ontology/shapes/fixtures certification bundle |
 | **Per-host rate limiting** | ✅ Built-in (this package) | `world_reference_mcp.http_clients.RateLimiter`, sized per vendor in `config.py` |
 
 ## Concept Registry
@@ -38,7 +38,7 @@ lettered ledger rows and design references in [`AGENTS.md`](https://github.com/K
 | EH-360 | Nutrition stream (USDA FoodData Central) | `world-reference-mcp` (local) |
 | EH-361 | Organism/weather observation streams (GBIF, iNaturalist, Open-Meteo, NOAA) | `world-reference-mcp` (local) |
 | EH-362 | Wikidata alignment stream | `world-reference-mcp` (local) |
-| RF-ADR-009 §2.2.1 | "A new API source is a preset, not code" | `agent-connector-sdk` (inherited) |
+| RF-ADR-009 §2.2.1 | "A new API source is a preset, not code" | `scion-sdk` (inherited) |
 
 > **Full Registry**: See [`agent-utilities/docs/overview.md`](https://github.com/Knuckles-Team/agent-utilities/blob/main/docs/overview.md) for the ecosystem-wide 5-Pillar concept index.
 

@@ -14,7 +14,7 @@ description: >-
 license: MIT
 tags: [world-reference, observations, gbif, inaturalist, open-meteo, noaa, mcp]
 metadata:
-  author: Genius
+  author: Knuckles-Team
   version: '0.2.0'
 ---
 

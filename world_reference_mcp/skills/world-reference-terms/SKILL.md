@@ -12,7 +12,7 @@ description: >-
 license: MIT
 tags: [world-reference, ontology, obo, ols4, mcp]
 metadata:
-  author: Genius
+  author: Knuckles-Team
   version: '0.2.0'
 ---
 

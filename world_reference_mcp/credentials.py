@@ -1,14 +1,14 @@
 """Credential references for the two keyed sources (FDC, NOAA).
 
 Every other source in this package is keyless. Values are resolved through
-``agent_connector_sdk.credentials`` at call time — never read directly from
+``scion_sdk.credentials`` at call time — never read directly from
 ``os.environ`` and never logged, cached to disk, or embedded in a fixture.
 """
 
 from __future__ import annotations
 
-from agent_connector_sdk.credentials.references import parse_secret_reference
-from agent_connector_sdk.credentials.resolver import (
+from scion_sdk.credentials.references import parse_secret_reference
+from scion_sdk.credentials.resolver import (
     CompositeCredentialResolver,
     CredentialResolver,
     CredentialUnavailableError,

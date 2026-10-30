@@ -1,7 +1,7 @@
 """Base URLs, contact info and rate-limit knobs for the world-reference APIs.
 
 Every value has a documented-limit-respecting default and is overridable
-through :func:`agent_connector_sdk.config.setting` so a deployment can point
+through :func:`scion_sdk.config.setting` so a deployment can point
 at a mirror or tune throughput without a code change. Nothing here performs
 I/O.
 """
@@ -10,7 +10,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 
-from agent_connector_sdk.config import setting
+from scion_sdk.config import setting
 
 #: Contact identity every governed client advertises. NCBI, GBIF and Wikidata
 #: all document that a real contact string in the User-Agent (or as an NCBI

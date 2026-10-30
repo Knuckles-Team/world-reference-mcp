@@ -26,7 +26,7 @@ installed package.
 - Supply the two credential references (`WORLD_REFERENCE_FDC_API_KEY`,
   `WORLD_REFERENCE_NOAA_TOKEN`) through environment variables or a mounted secret
   provider — never as a tool argument. Both resolve through
-  `agent_connector_sdk.credentials`: `env://` by default, or
+  `scion_sdk.credentials`: `env://` by default, or
   `openbao://apps/world-reference-mcp#<FIELD>` once a deployment wires an OpenBao
   resolver.
 - Set `WORLD_REFERENCE_CONTACT_EMAIL` to a real, monitored address — NCBI, GBIF, and
@@ -43,7 +43,7 @@ vendor defaults. Neither is a production secret.
 ## TLS trust
 
 Certificate verification is required for every outbound request; it is handled by
-`agent_connector_sdk.http.client.create_async_http_client` and is never disabled by
+`scion_sdk.http.client.create_async_http_client` and is never disabled by
 this package. For a private certificate authority intercepting outbound traffic (e.g.
 a corporate proxy), configure the process environment's standard trust store
 (`SSL_CERT_FILE`) rather than patching this package.

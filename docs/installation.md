@@ -18,14 +18,14 @@ pip install world-reference-mcp
 ```
 
 The base install already includes the FastMCP MCP-server runtime (pulled in
-transitively by `agent-connector-sdk`), so the `world-reference-mcp` console script is
+transitively by `scion-sdk`), so the `world-reference-mcp` console script is
 ready immediately — there is no separate `[mcp]` extra to install.
 
 ### Optional extras
 
 | Extra | Install | Pulls in |
 |---|---|---|
-| _(base)_ | `pip install world-reference-mcp` | `agent-connector-sdk` (FastMCP, governed HTTP, credentials) + `httpx` |
+| _(base)_ | `pip install world-reference-mcp` | `scion-sdk` (FastMCP, governed HTTP, credentials) + `httpx` |
 | `test` | `pip install "world-reference-mcp[test]"` | `pytest`, `pytest-asyncio`, `pytest-cov`, `pytest-xdist` |
 
 ## From source

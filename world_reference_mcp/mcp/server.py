@@ -2,7 +2,7 @@
 
 Composition root: one shared :class:`~world_reference_mcp.mcp.clients.Clients`
 wired into all five tool-registration modules on top of
-``agent_connector_sdk.mcp.server.create_mcp_server`` (secure server
+``scion_sdk.mcp.server.create_mcp_server`` (secure server
 construction, auth, network-exposure checks, fleet registration lease).
 """
 
@@ -10,8 +10,8 @@ from __future__ import annotations
 
 from typing import Any
 
-from agent_connector_sdk.mcp.server import create_mcp_server
 from fastmcp import FastMCP
+from scion_sdk.mcp.server import create_mcp_server
 from starlette.requests import Request
 from starlette.responses import JSONResponse
 

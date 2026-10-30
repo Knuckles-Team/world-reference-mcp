@@ -4,7 +4,7 @@ Governing spec: [spec.md](spec.md).
 
 ## Existing system and reuse
 
-The package carried a copy of the minimum-interval limiter in `world_reference_mcp/http_clients.py`. The SDK now ships the same class as `agent_connector_sdk.httpsupport.RateLimiter` (SDK 0.3.13). The copy is deleted.
+The package carried a copy of the minimum-interval limiter in `world_reference_mcp/http_clients.py`. The SDK now ships the same class as `scion_sdk.httpsupport.RateLimiter` (SDK 0.3.13). The copy is deleted.
 
 ## Architecture
 

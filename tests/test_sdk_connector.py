@@ -4,8 +4,8 @@ from __future__ import annotations
 
 import asyncio
 
-from agent_connector_sdk.connector import build_server
 from fastmcp import Client
+from scion_sdk.connector import build_server
 
 EXPECTED_TOOLS = {
     "taxonomy_ncbi_search",

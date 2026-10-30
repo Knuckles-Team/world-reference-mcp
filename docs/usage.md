@@ -2,7 +2,7 @@
 
 `world-reference-mcp` exposes the same eight vendor APIs two ways: as **MCP tools**
 an agent calls, and as **Python API functions** (`world_reference_mcp.api.*`) the operator
-import directly. The `agent-connector-sdk` architecture is covered in
+import directly. The `scion-sdk` architecture is covered in
 [Overview](overview.md).
 
 ## As an MCP server
@@ -64,7 +64,7 @@ asyncio.run(main())
 ```
 
 `Clients` lazily builds one governed `httpx.AsyncClient` (TLS, bounded timeout,
-retry/backoff via `agent_connector_sdk.http`) plus one `RateLimiter` per vendor host,
+retry/backoff via `scion_sdk.http`) plus one `RateLimiter` per vendor host,
 so importing it never opens a socket and every call from the process respects that
 vendor's documented request budget.
 
@@ -84,8 +84,8 @@ api_key = (
 
 The same nine tools back 17 checkpointed ingestion streams
 (`world_reference_mcp/connectors/mcp_source_presets.json`), extracted by
-`agent-connector-sdk`'s generic `McpToolSourceAdapter` — see
+`scion-sdk`'s generic `McpToolSourceAdapter` — see
 [`AGENTS.md`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/AGENTS.md)
 "Ontology mapping" for how each stream lands on an epistemic-graph world-model class.
-Delivering those streams to a live graph is the `agent_connector_sdk.runner`/`sinks`
+Delivering those streams to a live graph is the `scion_sdk.runner`/`sinks`
 job at deployment time, not a call this package's own console script makes.
