@@ -2,15 +2,14 @@
 
 Governing spec: [spec.md](spec.md).
 
-| Test ID | Requirement | Level | Setup and input | Expected observation | Evidence |
-|---|---|---|---|---|---|
-| T-001 | FR-001 | Unit | A `Clients()` instance. | Each endpoint limiter is an SDK `RateLimiter` with the endpoint's interval. |  |
-| T-002 | SC-001 | Unit | The `world_reference_mcp.http_clients` module. | The module has no `RateLimiter` attribute. |  |
+| Test ID | Requirement | Proving test | Expected observation |
+|---|---|---|---|
+| T-001 | `CONN-WORLD-REFERENCE-MCP-HTTP-R001` | `tests/test_sdk_rate_limiter.py::test_endpoint_limiter_is_the_sdk_limiter` | `tests/test_sdk_rate_limiter.py::test_endpoint_limiter_is_the_sdk_limiter` and `tests/test_sdk_rate_limiter.py::test_package_ships_no_rate_limiter` pass. |
 
 ## Negative and boundary cases
 
-The SDK tests cover zero and negative intervals and concurrent callers.
+Each proving test above includes the refusal or error case that its row names. A vendor outage or an unauthorised call must return the SDK typed error.
 
 ## Quality and release proof
 
-Run `uv run pytest tests/test_sdk_rate_limiter.py`.
+Run `uv run pytest tests` and `pre-commit run --all-files` from the repository root. A planned test is added by the code change that lands the row.
