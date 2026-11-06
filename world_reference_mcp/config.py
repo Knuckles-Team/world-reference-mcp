@@ -83,11 +83,12 @@ INATURALIST = SourceEndpoint(
     page_size=setting("WORLD_REFERENCE_INATURALIST_PAGE_SIZE", 200, cast=int),
 )
 
-#: Open-Meteo. Keyless, documented courtesy: <= 1 req/s sustained for a single
+#: Open-Meteo historical archive (the /archive route is served only by the
+#: archive-api host, not api.open-meteo.com, which 404s). Keyless, documented courtesy: <= 1 req/s sustained for a single
 #: client: https://open-meteo.com/en/docs.
 OPEN_METEO = SourceEndpoint(
     base_url=setting(
-        "WORLD_REFERENCE_OPEN_METEO_BASE_URL", "https://api.open-meteo.com/v1"
+        "WORLD_REFERENCE_OPEN_METEO_BASE_URL", "https://archive-api.open-meteo.com/v1"
     ),
     min_interval_seconds=setting(
         "WORLD_REFERENCE_OPEN_METEO_MIN_INTERVAL", 1.0, cast=float
