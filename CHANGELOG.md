@@ -27,6 +27,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   Docker image, packaged skills/prompts, CI workflows, and supply-chain/security
   scaffolding.
 
+### Fixed
+- Open-Meteo default base URL now targets the archive host; the `/archive` route 404ed on `api.open-meteo.com`.
+
 ## [0.1.0] - 2026-09-23
 
 ### Added

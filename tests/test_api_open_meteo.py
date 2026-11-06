@@ -17,7 +17,7 @@ async def test_fetch_daily_maps_fields_and_advances_cursor() -> None:
         assert request.url.path == "/v1/archive"
         return json_response(load_fixture("open_meteo_archive.json"))
 
-    async with mock_client("https://api.open-meteo.com/v1", handler) as client:
+    async with mock_client("https://archive-api.open-meteo.com/v1", handler) as client:
         page = await fetch_daily(
             client,
             latitude=52.52,
@@ -41,8 +41,15 @@ async def test_fetch_daily_stops_at_the_archive_horizon() -> None:
     def handler(request: httpx.Request) -> httpx.Response:
         return json_response(load_fixture("open_meteo_archive.json"))
 
-    async with mock_client("https://api.open-meteo.com/v1", handler) as client:
+    async with mock_client("https://archive-api.open-meteo.com/v1", handler) as client:
         page = await fetch_daily(
             client, latitude=0.0, longitude=0.0, start_date=start, window_days=30
         )
     assert page["next_cursor"] is None
+
+
+def test_default_base_url_is_the_archive_host() -> None:
+    """The /archive route is served only by archive-api.open-meteo.com (api. 404s)."""
+    from world_reference_mcp.config import OPEN_METEO
+
+    assert OPEN_METEO.base_url.startswith("https://archive-api.open-meteo.com/")
