@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "world-reference-mcp"
-version = "0.3.7"
+version = "0.3.8"
 description = "World-reference data (taxonomy, OBO terms, nutrition, observations, Wikidata alignment) MCP server and scion-sdk source adapters"
 readme = "README.md"
 classifiers = [
