@@ -1,7 +1,8 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix core: <https://knuckles-team.github.io/ontology/core#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dc: <http://purl.org/dc/terms/> .
-@prefix : <http://knuckles.team/kg#> .
+@prefix : <https://knuckles-team.github.io/ontology/connector/world-reference#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -21,7 +22,7 @@
 # --- classes (owl:Class) ---
 
 :ReferenceSyncRun a owl:Class ;
-    rdfs:subClassOf :Event ;
+    rdfs:subClassOf core:Event ;
     rdfs:label "Reference Sync Run" ;
     rdfs:comment "One bounded sweep of one world-reference-mcp stream (taxonomy, reference terms, nutrition, observations, or Wikidata alignment): a durable record of the ask and its checkpoint, not the ingested data itself." .
 
@@ -33,7 +34,7 @@
     rdfs:domain :ReferenceSyncRun ;
     rdfs:range xsd:string .
 
-<http://knuckles.team/kg/world-reference-mcp> a owl:Ontology ;
+<https://knuckles-team.github.io/ontology/connector/world-reference> a owl:Ontology ;
     rdfs:label "World Reference Connector Ontology" ;
     rdfs:comment """world-reference-mcp's own sync-lifecycle bookkeeping,
     federated into the meristem knowledge-graph hub. The world-model
