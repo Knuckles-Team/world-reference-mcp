@@ -70,7 +70,7 @@ giving it a DNS name with Technitium.
 > `world-reference-mcp` ships **one** server: an **MCP server** (console script
 > `world-reference-mcp`) — a typed, deterministic tool surface over eight public
 > reference-data APIs. Delivery of its 17 declarative streams to a live
-> epistemic-graph knowledge graph is a separate deployment-layer concern, owned by
+> medulla knowledge graph is a separate deployment-layer concern, owned by
 > `scion_sdk.runner`/`sinks` (see [`AGENTS.md`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/AGENTS.md)), not by this server process.
 
 ## Run the MCP server

@@ -10,7 +10,7 @@
 # It does NOT redeclare the world-model domain classes (Taxon, ReferenceTerm,
 # Food, FoodCompositionRecord, NutrientAmount, OrganismObservation,
 # WeatherObservation, Region, Country, ...) — those are owned by
-# epistemic-graph's core `life`/`environment`/`nutrition` modules
+# medulla's core `life`/`environment`/`nutrition` modules
 # (crates/eg-core/ontology/{life,environment,nutrition}-v1.ttl) on EG branch
 # `feat/world-model-ontology`. This connector maps each of its 17 declared
 # streams onto one of those existing classes through
@@ -36,7 +36,7 @@
 <http://knuckles.team/kg/world-reference-mcp> a owl:Ontology ;
     rdfs:label "World Reference Connector Ontology" ;
     rdfs:comment """world-reference-mcp's own sync-lifecycle bookkeeping,
-    federated into the agent-utilities knowledge-graph hub. The world-model
-    domain classes each stream lands on are epistemic-graph-owned; this
+    federated into the meristem knowledge-graph hub. The world-model
+    domain classes each stream lands on are medulla-owned; this
     ontology models only this connector's own admin state, not a second copy
     of that domain.""" .

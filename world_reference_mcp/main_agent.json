@@ -4,7 +4,7 @@
   "type": "prompt",
   "source": "world-reference-mcp",
   "description": "World-reference data (taxonomy, OBO terms, nutrition, observations, Wikidata alignment) MCP Server",
-  "extends": "agent-utilities:base",
+  "extends": "meristem:base",
   "compose": "append",
   "identity": {
     "role": "World Reference Agent",

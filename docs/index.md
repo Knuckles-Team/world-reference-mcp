@@ -4,7 +4,7 @@ World-reference data — organism taxonomy, OBO reference terms, food/nutrition
 composition, organism and weather observations, and Wikidata alignment — as a
 typed, deterministic **MCP tool surface** and, through `scion-sdk`'s
 declarative `mcp_tool` source adapter, as bounded, checkpointed ingestion
-streams onto the epistemic-graph `world_model` ontology.
+streams onto the medulla `world_model` ontology.
 
 !!! info "Official documentation"
     This site is the canonical reference for `world-reference-mcp`, maintained alongside
