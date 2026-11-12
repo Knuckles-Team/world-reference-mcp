@@ -32,10 +32,10 @@
 This project integrates with `scion-sdk` by declaring every one of its 17
 streams as a `ToolPreset` in `connectors/mcp_source_presets.json`, extracted by the
 SDK's own generic `McpToolSourceAdapter` rather than a bespoke per-source adapter
-class. It deliberately does **not** import `agent_utilities` directly or construct
-its own epistemic-graph client — see [`AGENTS.md`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/AGENTS.md)
+class. It deliberately does **not** import `meristem` directly or construct
+its own medulla client — see [`AGENTS.md`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/AGENTS.md)
 "Why scion-sdk, not the legacy AU client-reflection pattern" for the full
 rationale. Its `skills`/`prompts`/`ontology` packages are still discovered by the
-agent-utilities hub through the standard `agent_utilities.*_providers` entry points —
+meristem hub through the standard `meristem.*_providers` entry points —
 that discovery is one-directional (the hub imports this package's data), so it does
 not create a reverse dependency.

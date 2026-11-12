@@ -86,6 +86,6 @@ The same nine tools back 17 checkpointed ingestion streams
 (`world_reference_mcp/connectors/mcp_source_presets.json`), extracted by
 `scion-sdk`'s generic `McpToolSourceAdapter` — see
 [`AGENTS.md`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/AGENTS.md)
-"Ontology mapping" for how each stream lands on an epistemic-graph world-model class.
+"Ontology mapping" for how each stream lands on an medulla world-model class.
 Delivering those streams to a live graph is the `scion_sdk.runner`/`sinks`
 job at deployment time, not a call this package's own console script makes.

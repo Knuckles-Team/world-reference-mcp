@@ -13,7 +13,7 @@ alignment) MCP server and `scion-sdk` source adapters.
 ## Enterprise Readiness
 
 This package inherits its governed transport and content-pack infrastructure from
-`scion-sdk`, not from `agent-utilities` directly (see "Why
+`scion-sdk`, not from `meristem` directly (see "Why
 scion-sdk" in [`AGENTS.md`](https://github.com/Knuckles-Team/world-reference-mcp/blob/main/AGENTS.md)):
 
 | Feature | Status | Source |
@@ -40,7 +40,7 @@ lettered ledger rows and design references in [`AGENTS.md`](https://github.com/K
 | EH-362 | Wikidata alignment stream | `world-reference-mcp` (local) |
 | RF-ADR-009 §2.2.1 | "A new API source is a preset, not code" | `scion-sdk` (inherited) |
 
-> **Full Registry**: See [`agent-utilities/docs/overview.md`](https://github.com/Knuckles-Team/agent-utilities/blob/main/docs/overview.md) for the ecosystem-wide 5-Pillar concept index.
+> **Full Registry**: See [`meristem/docs/overview.md`](https://github.com/Knuckles-Team/meristem/blob/main/docs/overview.md) for the ecosystem-wide 5-Pillar concept index.
 
 ## Architecture
 
@@ -54,8 +54,8 @@ world-reference-mcp/
 │   ├── mcp/                     # The nine-tool FastMCP surface + composition root
 │   ├── connectors/               # Declarative mcp_tool presets + the SourceAdapter factory
 │   ├── ontology/                 # This connector's own admin-lifecycle ontology
-│   ├── skills/                   # Packaged agent-utilities skill providers
-│   └── prompts/                  # Packaged agent-utilities prompt providers
+│   ├── skills/                   # Packaged meristem skill providers
+│   └── prompts/                  # Packaged meristem prompt providers
 ├── tests/                        # Test suite
 ├── docs/                         # Documentation (this site)
 ├── pyproject.toml                # Package metadata

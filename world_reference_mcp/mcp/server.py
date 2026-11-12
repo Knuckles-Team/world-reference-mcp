@@ -24,7 +24,7 @@ __all__ = ["build_server"]
 _INSTRUCTIONS = (
     "World-reference data (taxonomy, OBO reference terms, food composition, "
     "organism/weather observations, Wikidata alignment) for automatic "
-    "enrichment onto the epistemic-graph world_model ontology. Every tool is "
+    "enrichment onto the medulla world_model ontology. Every tool is "
     "keyless except fdc_food_search and noaa_ghcnd_daily, whose credentials "
     "are resolved server-side — never accept them as tool arguments."
 )
