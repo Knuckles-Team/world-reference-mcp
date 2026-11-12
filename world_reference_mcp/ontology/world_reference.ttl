@@ -21,6 +21,7 @@
 # --- classes (owl:Class) ---
 
 :ReferenceSyncRun a owl:Class ;
+    rdfs:subClassOf :Event ;
     rdfs:label "Reference Sync Run" ;
     rdfs:comment "One bounded sweep of one world-reference-mcp stream (taxonomy, reference terms, nutrition, observations, or Wikidata alignment): a durable record of the ask and its checkpoint, not the ingested data itself." .
 
