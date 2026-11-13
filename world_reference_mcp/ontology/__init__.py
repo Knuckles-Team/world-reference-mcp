@@ -1,7 +1,7 @@
 """world-reference-mcp's own admin/lifecycle ontology contribution.
 
 Data-only subpackage: it carries ``world_reference.ttl`` (the ``owl:Ontology``
-``http://knuckles.team/kg/world-reference-mcp`` module — this connector's own
+``https://knuckles-team.github.io/ontology/connector/world-reference`` module — this connector's own
 ``ReferenceSyncRun`` sync-lifecycle bookkeeping, NOT a second copy of the
 ``life``/``environment``/``nutrition`` world-model classes each of this
 connector's 17 streams lands on; those are medulla-owned). The SDK
