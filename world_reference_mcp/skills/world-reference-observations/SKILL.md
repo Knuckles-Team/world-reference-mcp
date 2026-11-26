@@ -2,15 +2,7 @@
 name: world-reference-observations
 skill_type: skill
 description: >-
-  Search organism-occurrence and weather-observation records via the
-  world-reference-mcp MCP server — GBIF-mediated occurrences
-  (`gbif_occurrence_search`), iNaturalist community observations
-  (`inaturalist_observation_search`), Open-Meteo historical daily weather
-  (`open_meteo_weather_observation`), and NOAA GHCND daily station
-  observations (`noaa_ghcnd_daily`). Use when the agent must find where/when a
-  species was observed or what the weather was at a place and time. Do NOT use
-  for resolving a scientific name to a taxon id (use `world-reference-taxonomy`)
-  or for food composition (use `world-reference-nutrition`).
+  Search organism-occurrence and weather records via the world-reference-mcp server: GBIF occurrences, iNaturalist observations, Open-Meteo daily weather and NOAA GHCND station data. Use to find where or when a species was seen or what the weather was. Do NOT use to resolve taxon ids (world-reference-taxonomy) or for food data (world-reference-nutrition).
 license: MIT
 tags: [world-reference, observations, gbif, inaturalist, open-meteo, noaa, mcp]
 metadata:
@@ -19,6 +11,8 @@ metadata:
 ---
 
 # World Reference Observations
+
+Scope: Search organism-occurrence and weather-observation records via the world-reference-mcp MCP server — GBIF-mediated occurrences (`gbif_occurrence_search`), iNaturalist community observations (`inaturalist_observation_search`), Open-Meteo historical daily weather (`open_meteo_weather_observation`), and NOAA GHCND daily station observations (`noaa_ghcnd_daily`). Use when the agent must find where/when a species was observed or what the weather was at a place and time. Do NOT use for resolving a scientific name to a taxon id (use `world-reference-taxonomy`) or for food composition (use `world-reference-nutrition`).
 
 Organism-occurrence and weather-observation search across four independent
 sources through the `world-reference-mcp` MCP server. Every location a tool
@@ -47,6 +41,22 @@ server-side credential.
 | `WORLD_REFERENCE_NOAA_TOKEN` | ✅ (for `noaa_ghcnd_daily` only) | `env://` reference (default) or `openbao://apps/world-reference-mcp#<FIELD>` |
 | `WORLD_REFERENCE_CONTACT_EMAIL` | optional | Contact identity advertised in the outbound `User-Agent` |
 | `WORLD_REFERENCE_GBIF_MIN_INTERVAL` / `WORLD_REFERENCE_INATURALIST_MIN_INTERVAL` / `WORLD_REFERENCE_OPEN_METEO_MIN_INTERVAL` / `WORLD_REFERENCE_NOAA_MIN_INTERVAL` | optional | Per-source request pacing overrides |
+
+## Steps
+
+1. Resolve a common name to a scientific name with `taxonomy_gbif_search` (`query`). Verify one species row matches.
+2. Search occurrences with `gbif_occurrence_search` (`scientific_name`, `limit`) or `inaturalist_observation_search` (`taxon_name`, `per_page`). Verify records carry `occurrence_id` or `observation_id`.
+3. Fetch weather with `open_meteo_weather_observation` (`latitude`, `longitude`, `window_days`). Verify daily rows carry `observation_date`.
+4. Fetch station data with `noaa_ghcnd_daily` (`station_id`, `start_date`, `end_date`). Verify the `station_id` has the `GHCND:` form and rows are returned.
+5. Continue a long sweep with the returned `next_cursor` as `start_date`. Verify the new window starts where the last one ended.
+
+## Failure recovery
+
+| Failure | Cause | Recovery |
+|---------|-------|----------|
+| Credential error on `noaa_ghcnd_daily` | `WORLD_REFERENCE_NOAA_TOKEN` not configured | Report the gap and ask the deployment owner to set the token reference |
+| Empty occurrence page | Common name used as `scientific_name` | Resolve the name with `taxonomy_gbif_search` and pass the scientific name |
+| Open-Meteo returns too few days | `window_days` bounds one call | Call again with `start_date` set to `next_cursor` |
 
 ## Tools & actions
 | Tool | Parameters | Returns |

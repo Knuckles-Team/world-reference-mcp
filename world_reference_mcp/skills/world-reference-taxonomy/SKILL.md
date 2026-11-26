@@ -2,14 +2,7 @@
 name: world-reference-taxonomy
 skill_type: skill
 description: >-
-  Resolve organism taxa via the world-reference-mcp MCP server — search NCBI
-  Taxonomy by an Entrez query term (`taxonomy_ncbi_search`) and search the GBIF
-  backbone taxonomy by scientific name and rank (`taxonomy_gbif_search`). Use
-  when the agent must resolve a scientific name to a stable taxon id, page
-  through a taxonomic subtree, or cross-check a name against two independent
-  taxonomic authorities. Do NOT use for organism occurrence records (use
-  `world-reference-observations`) or for aligning a taxon id to Wikidata (use
-  `world-reference-alignment`).
+  Resolve organism taxa via the world-reference-mcp MCP server — search NCBI Taxonomy by an Entrez query term (`taxonomy_ncbi_search`) and search the GBIF backbone taxonomy by scientific name and rank (`taxonomy_gbif_search`). Use when the agent must resolve a scientific name to a stable taxon id, page through a taxonomic subtree, or cross-check a name against two independent taxonomic authorities.
 license: MIT
 tags: [world-reference, taxonomy, ncbi, gbif, mcp]
 metadata:
@@ -18,6 +11,8 @@ metadata:
 ---
 
 # World Reference Taxonomy
+
+Scope: Resolve organism taxa via the world-reference-mcp MCP server — search NCBI Taxonomy by an Entrez query term (`taxonomy_ncbi_search`) and search the GBIF backbone taxonomy by scientific name and rank (`taxonomy_gbif_search`). Use when the agent must resolve a scientific name to a stable taxon id, page through a taxonomic subtree, or cross-check a name against two independent taxonomic authorities. Do NOT use for organism occurrence records (use `world-reference-observations`) or for aligning a taxon id to Wikidata (use `world-reference-alignment`).
 
 Keyless organism-taxonomy search over **NCBI Taxonomy** and the **GBIF**
 backbone through the `world-reference-mcp` MCP server. Both tools return the
@@ -49,6 +44,22 @@ required for this skill.
 |----------|----------|-------|
 | `WORLD_REFERENCE_CONTACT_EMAIL` | optional | Contact identity advertised in the outbound `User-Agent`; NCBI/GBIF ask for one |
 | `WORLD_REFERENCE_NCBI_MIN_INTERVAL` / `WORLD_REFERENCE_GBIF_MIN_INTERVAL` | optional | Per-host request pacing overrides |
+
+## Steps
+
+1. Choose the authority. Use `taxonomy_ncbi_search` for an Entrez query or `taxonomy_gbif_search` for a name and rank. Verify the id type you need is `ncbi_taxon_id` or `gbif_taxon_key`.
+2. Search with `taxonomy_gbif_search` (`query`, `rank`, `limit`) or `taxonomy_ncbi_search` (`term`, `retmax`). Verify the page returns the stable id for the name.
+3. Cross-check an ambiguous name by running `taxonomy_gbif_search` (`query`) and `taxonomy_ncbi_search` (`term`). Verify both agree on the scientific name before choosing one id.
+4. Page with `offset` or `retstart` when the match count exceeds one page. Verify you enumerate until a page is empty.
+5. Report the id together with the tool that produced it, `taxonomy_ncbi_search` or `taxonomy_gbif_search`. Verify you did not reuse an NCBI id where a GBIF key is expected.
+
+## Failure recovery
+
+| Failure | Cause | Recovery |
+|---------|-------|----------|
+| NCBI search returns free-text noise | `term` is a bare name | Use a field-tagged Entrez term such as `"Carnivora[Subtree]"` |
+| GBIF returns other ranks | `rank` left empty | Pass `rank` such as `SPECIES` in `taxonomy_gbif_search` |
+| Throttled response | Pacing too fast | Set `WORLD_REFERENCE_NCBI_MIN_INTERVAL` or `WORLD_REFERENCE_GBIF_MIN_INTERVAL` higher in the deployment |
 
 ## Tools & actions
 | Tool | Parameters | Returns |

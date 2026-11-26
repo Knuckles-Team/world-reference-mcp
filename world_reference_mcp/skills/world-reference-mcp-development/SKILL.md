@@ -20,6 +20,22 @@ the affected module, and the relevant `specs/` status before editing. Keep vendo
 calls behind the existing MCP tools and SDK source adapters, with credentials resolved
 server-side.
 
+## Steps
+
+1. Read `AGENTS.md` and find the owning spec row with `git grep -n "<term>" -- specs`. Verify one row owns the change.
+2. Name the files the change touches with `git status --short` after editing. Verify only those files are modified.
+3. Run the narrowest mocked test with `uv run pytest -q tests/<test file>`. Verify it passes without network or credentials.
+4. Run the repository hooks with `pre-commit run --all-files`. Verify every hook reports Passed.
+5. Review the full diff with `git diff`. Verify no credentials, raw vendor responses or generated output are present.
+
+## Failure recovery
+
+| Failure | Cause | Recovery |
+|---------|-------|----------|
+| Test reaches the network | Vendor call not mocked | Patch the adapter call in the test and rerun the single test file |
+| Pre-commit hook rewrites files | Formatter or spelling hook applied fixes | Stage the rewritten paths with `git add -- <path>` and commit again |
+| Spec status file changed by hand | Status is generated | Restore it with `git checkout -- <path>` and let the pipeline tool regenerate it |
+
 ## Rapid delivery: the 5-minute contract
 
 For a small, reviewable change:

@@ -31,6 +31,22 @@ Use the provider's governed MCP tools through Arbora delegation.
 - Require explicit approval for destructive, externally visible, or irreversible actions.
 - Keep runtime traces policy-scoped and privacy-sanitized.
 
+## Steps
+
+1. Confirm the session and tenant with `find(intent="world reference")`. Verify Arbora reports the GraphSession and tenant.
+2. Discover the tool surface with `find(intent="taxonomy")`. Verify the tool you plan to call appears with its parameter schema.
+3. Inspect read-only with `act(op="fleet.call", params={"server": "world-reference-mcp", "tool": "taxonomy_gbif_search", "arguments": {"query": "Carnivora", "limit": 5}})`. Verify the response is a page of taxa.
+4. Preview any ingest with `act(op="fleet.call", ...)` through the signed connector preset and obtain approval. Verify the preview names the source and record count before you execute.
+5. Read back the result with the matching search tool such as `taxonomy_gbif_search`. Verify a trace id exists for the run before reporting completion.
+
+## Failure recovery
+
+| Failure | Cause | Recovery |
+|---------|-------|----------|
+| Tool not found | Stale tool name | Call `find(intent="world reference")` again and use the name it returns |
+| Credential error on `fdc_food_search` | `WORLD_REFERENCE_FDC_API_KEY` not configured | Ask the deployment owner to set the key reference and report the gap meanwhile |
+| Mutation or ingest refused | Approval not given or ACL unknown | Present the impact, obtain explicit approval and resubmit with the returned plan reference |
+
 ## Specialized workflows
 
 Read [the workflow catalog](references/catalog.md) only when the request needs a

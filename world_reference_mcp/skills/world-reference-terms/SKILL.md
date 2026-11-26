@@ -2,13 +2,7 @@
 name: world-reference-terms
 skill_type: skill
 description: >-
-  List OBO reference-vocabulary terms via the world-reference-mcp MCP server —
-  one page of one ontology's terms through EBI OLS4 (`reference_term_list`)
-  across GO, UBERON, ENVO, PATO, ChEBI, and FoodOn. Use when the agent must
-  enumerate or page a controlled reference vocabulary (biological process,
-  anatomy, environment, quality, chemical entity, or food terms). Do NOT use
-  for organism taxa (use `world-reference-taxonomy`) or for joining a term to
-  Wikidata (use `world-reference-alignment`).
+  List OBO reference-vocabulary terms via the world-reference-mcp MCP server — one page of one ontology's terms through EBI OLS4 (`reference_term_list`) across GO, UBERON, ENVO, PATO, ChEBI, and FoodOn. Use when the agent must enumerate or page a controlled reference vocabulary (biological process, anatomy, environment, quality, chemical entity, or food terms).
 license: MIT
 tags: [world-reference, ontology, obo, ols4, mcp]
 metadata:
@@ -17,6 +11,8 @@ metadata:
 ---
 
 # World Reference Terms
+
+Scope: List OBO reference-vocabulary terms via the world-reference-mcp MCP server — one page of one ontology's terms through EBI OLS4 (`reference_term_list`) across GO, UBERON, ENVO, PATO, ChEBI, and FoodOn. Use when the agent must enumerate or page a controlled reference vocabulary (biological process, anatomy, environment, quality, chemical entity, or food terms). Do NOT use for organism taxa (use `world-reference-taxonomy`) or for joining a term to Wikidata (use `world-reference-alignment`).
 
 Keyless, paged enumeration of six OBO reference vocabularies through **EBI
 OLS4** via the `world-reference-mcp` MCP server's `reference_term_list` tool.
@@ -40,6 +36,22 @@ server. Keyless — no credential or environment variable is required.
 |----------|----------|-------|
 | `WORLD_REFERENCE_CONTACT_EMAIL` | optional | Contact identity advertised in the outbound `User-Agent` |
 | `WORLD_REFERENCE_OLS4_MIN_INTERVAL` | optional | Request pacing override |
+
+## Steps
+
+1. Choose the ontology from `go`, `uberon`, `envo`, `pato`, `chebi` or `foodon`. Verify it matches the vocabulary the request needs.
+2. List the first page with `reference_term_list` (`ontology`, `page=0`, `size=100`). Verify rows carry `iri` and `label`.
+3. Page forward with `page`. Verify each page number is one higher than the last and stop at an empty page.
+4. Filter the rows for the term in question. Verify the `iri` and `label` pair is copied from the same row.
+5. Report the ontology id with the term from `reference_term_list`. Verify the term is not attributed to a different ontology.
+
+## Failure recovery
+
+| Failure | Cause | Recovery |
+|---------|-------|----------|
+| `UnknownOntologyError` | Ontology id not one of the six declared | Pass `go`, `uberon`, `envo`, `pato`, `chebi` or `foodon` |
+| Term not found on early pages | Large ontology such as `chebi` | Keep paging with `page` or use `world-reference-alignment` if you hold an id |
+| Empty first page | `page` passed as 1-based | Pass `page=0` for the first page |
 
 ## Tools & actions
 | Tool | Parameters | Returns |
