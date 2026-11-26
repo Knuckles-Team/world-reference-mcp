@@ -2,12 +2,7 @@
 name: world-reference-nutrition
 skill_type: skill
 description: >-
-  Search food composition data via the world-reference-mcp MCP server — search
-  USDA FoodData Central, returning each matched food with its nutrient amounts
-  (`fdc_food_search`). Use when the agent must look up a food's nutrient
-  profile or resolve a food description to an FDC id. Do NOT use for organism
-  taxa, reference terms, observations, or Wikidata alignment (use the other
-  `world-reference` skills).
+  Search food composition data via the world-reference-mcp MCP server — search USDA FoodData Central, returning each matched food with its nutrient amounts (`fdc_food_search`). Use when the agent must look up a food's nutrient profile or resolve a food description to an FDC id.
 license: MIT
 tags: [world-reference, nutrition, fdc, usda, mcp]
 metadata:
@@ -16,6 +11,8 @@ metadata:
 ---
 
 # World Reference Nutrition
+
+Scope: Search food composition data via the world-reference-mcp MCP server — search USDA FoodData Central, returning each matched food with its nutrient amounts (`fdc_food_search`). Use when the agent must look up a food's nutrient profile or resolve a food description to an FDC id. Do NOT use for organism taxa, reference terms, observations, or Wikidata alignment (use the other `world-reference` skills).
 
 Food-composition search over **USDA FoodData Central** through the
 `world-reference-mcp` MCP server's `fdc_food_search` tool. The only tool in
@@ -39,6 +36,22 @@ server. This tool needs a USDA FoodData Central API key, resolved
 | `WORLD_REFERENCE_FDC_API_KEY` | ✅ | `env://` reference (default) or `openbao://apps/world-reference-mcp#<FIELD>` |
 | `WORLD_REFERENCE_CONTACT_EMAIL` | optional | Contact identity advertised in the outbound `User-Agent` |
 | `WORLD_REFERENCE_FDC_MIN_INTERVAL` | optional | Request pacing override (default keeps well under the documented 1,000 req/hour key limit) |
+
+## Steps
+
+1. Check that the key is configured by calling `fdc_food_search` (`query`, `page_size=1`). Verify the response is a page and not a credential error.
+2. Search the food with `fdc_food_search` (`query`, `page_number`, `page_size`). Verify results carry `fdc_id` and `description`.
+3. Pick the match whose `description` fits the request. Verify the nutrient amounts are present on that row.
+4. Page with `page_number` when the best match is not on page 1. Verify you stop only when a match fits or a page is empty.
+5. Report the `fdc_id`, description and nutrient amounts. Verify no value was estimated.
+
+## Failure recovery
+
+| Failure | Cause | Recovery |
+|---------|-------|----------|
+| Credential resolution error | `WORLD_REFERENCE_FDC_API_KEY` not configured | Report the gap and ask the deployment owner to set the `env://` or `openbao://` reference |
+| Empty page | Query too specific | Search a shorter description such as `"cheddar"` and compare the descriptions |
+| Throttled by USDA | Many searches in a tight loop | Raise `WORLD_REFERENCE_FDC_MIN_INTERVAL` in the deployment and page with a larger `page_size` |
 
 ## Tools & actions
 | Tool | Parameters | Returns |

@@ -2,14 +2,7 @@
 name: world-reference-alignment
 skill_type: skill
 description: >-
-  Align external identifiers to Wikidata via the world-reference-mcp MCP
-  server — list Wikidata items carrying a given external-id join key
-  (`wikidata_alignment_search`) for `taxon_ncbi`, `taxon_gbif`,
-  `chemical_entity`, and `country` entity types. Use when the agent must join
-  a resolved NCBI/GBIF taxon id or a ChEBI term to its Wikidata item for
-  cross-source entity resolution. Do NOT use to resolve a name to a taxon id in
-  the first place (use `world-reference-taxonomy`) or to list reference terms
-  (use `world-reference-terms`).
+  Align external identifiers to Wikidata via the world-reference-mcp MCP server — list Wikidata items carrying a given external-id join key (`wikidata_alignment_search`) for `taxon_ncbi`, `taxon_gbif`, `chemical_entity`, and `country` entity types. Use when the agent must join a resolved NCBI/GBIF taxon id or a ChEBI term to its Wikidata item for cross-source entity resolution.
 license: MIT
 tags: [world-reference, wikidata, alignment, entity-resolution, mcp]
 metadata:
@@ -18,6 +11,8 @@ metadata:
 ---
 
 # World Reference Alignment
+
+Scope: Align external identifiers to Wikidata via the world-reference-mcp MCP server — list Wikidata items carrying a given external-id join key (`wikidata_alignment_search`) for `taxon_ncbi`, `taxon_gbif`, `chemical_entity`, and `country` entity types. Use when the agent must join a resolved NCBI/GBIF taxon id or a ChEBI term to its Wikidata item for cross-source entity resolution. Do NOT use to resolve a name to a taxon id in the first place (use `world-reference-taxonomy`) or to list reference terms (use `world-reference-terms`).
 
 Cross-source identifier alignment against **Wikidata** through the
 `world-reference-mcp` MCP server's `wikidata_alignment_search` tool. Every
@@ -43,6 +38,22 @@ server. Keyless — no credential or environment variable is required.
 |----------|----------|-------|
 | `WORLD_REFERENCE_CONTACT_EMAIL` | optional | Contact identity advertised in the outbound `User-Agent`; Wikidata's usage policy asks for one |
 | `WORLD_REFERENCE_WIKIDATA_MIN_INTERVAL` | optional | Request pacing override |
+
+## Steps
+
+1. Resolve the identifier first with `taxonomy_ncbi_search` or `reference_term_list` when you only have a name. Verify you hold a stable id such as `ncbi_taxon_id`.
+2. Choose the `entity_type` from `taxon_ncbi`, `taxon_gbif`, `chemical_entity` or `country`. Verify it matches the kind of id you hold.
+3. Call `wikidata_alignment_search` (`entity_type`, `limit`). Verify the page returns items with `wikidata_id` and `label`.
+4. Page forward with `offset` until the id you hold appears or a page is empty. Verify the matched row carries the join key you started with.
+5. Report the `wikidata_id` and the `entity_type` used. Verify no id from a different authority was substituted.
+
+## Failure recovery
+
+| Failure | Cause | Recovery |
+|---------|-------|----------|
+| `UnknownEntityTypeError` | `entity_type` not one of the four declared values | Pass `taxon_ncbi`, `taxon_gbif`, `chemical_entity` or `country` |
+| Empty page | `offset` past the end or wrong authority for the id | Reset `offset` to 0 and switch between `taxon_ncbi` and `taxon_gbif` |
+| Slow or throttled response | Shared public SPARQL endpoint under load | Lower `limit` to 50 and set `WORLD_REFERENCE_WIKIDATA_MIN_INTERVAL` higher in the deployment |
 
 ## Tools & actions
 | Tool | Parameters | Returns |
